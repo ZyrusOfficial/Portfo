@@ -1,8 +1,12 @@
 import './styles/main.css';
 import { hydrateContent } from './features/hydrate.js';
+import { initMotion } from './motion/animations.js';
 
 // Hydrate dynamic data
 hydrateContent();
+
+// Initialize GSAP & Lenis
+initMotion();
 
 // Live Telemetry Clock (PHT)
 function updateClock() {
