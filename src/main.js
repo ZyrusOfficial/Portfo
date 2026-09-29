@@ -1,4 +1,8 @@
 import './styles/main.css';
+import { hydrateContent } from './features/hydrate.js';
+
+// Hydrate dynamic data
+hydrateContent();
 
 // Live Telemetry Clock (PHT)
 function updateClock() {
@@ -35,17 +39,73 @@ mobileLinks.forEach(link => {
   link.addEventListener('click', toggleMobileMenu);
 });
 
-// Interactive Transmission Form Simulation
-const form = document.querySelector('form');
+// Email Obfuscation
+const emailEl = document.getElementById('contact-email');
+if (emailEl) {
+  const user = 'princezyrusnatividad';
+  const domain = 'gmail.com';
+  const addr = `${user}@${domain}`;
+  emailEl.innerHTML = `<a href="mailto:${addr}" class="hover:text-terracotta hover:underline">${addr}</a>`;
+}
+
+// Interactive Transmission Form Handling
+const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const status = document.getElementById('transmit-status');
-    if (status) {
+    const error = document.getElementById('transmit-error');
+    const submitBtn = document.getElementById('form-submit');
+    const honey = document.getElementById('honey').value;
+
+    status.classList.add('hidden');
+    error.classList.add('hidden');
+
+    if (honey) {
+      return; // Honeypot triggered
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span>[ TRANSMITTING... ]</span>`;
+
+    const endpoint = import.meta.env.VITE_FORM_ENDPOINT;
+    
+    if (!endpoint) {
+      // Fallback to mailto
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const subject = document.getElementById('form-subject').value;
+      const message = document.getElementById('form-message').value;
+      
+      const mailto = `mailto:princezyrusnatividad@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
+      window.location.href = mailto;
+      
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<span>[ TRANSMIT PACKET ]</span>`;
       status.classList.remove('hidden');
-      setTimeout(() => {
-        status.textContent = "PACKET ROUTED TO ARCHIVE QUEUE [OK]";
-      }, 1200);
+      return;
+    }
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      if (res.ok) {
+        status.classList.remove('hidden');
+        form.reset();
+      } else {
+        error.classList.remove('hidden');
+      }
+    } catch (err) {
+      error.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<span>[ TRANSMIT PACKET ]</span>`;
     }
   });
 }

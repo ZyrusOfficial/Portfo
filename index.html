@@ -289,22 +289,22 @@
           
           <div class="border-l-2 border-terracotta pl-6 py-1">
             <span class="font-mono text-xs tracking-wider uppercase text-terracotta block mb-2">[ FOUNDATION ]</span>
-            <p>
+            <p id="story-foundation">
               Completed Grade 10 in the <strong class="text-ink">Science, Technology and Engineering (STE) program</strong> at Capas National High School; now in <strong class="text-ink">Accountancy, Business and Management (ABM)</strong> at Dominican College of Tarlac. The shift mirrors the work: from raw embedded systems toward market systems.
             </p>
           </div>
 
           <div class="border-l-2 border-hairline hover:border-ink transition-colors pl-6 py-1">
             <span class="font-mono text-xs tracking-wider uppercase text-ink block mb-2">[ BUILDER ]</span>
-            <p>
+            <p id="story-builder">
               Linux power user and hardware tinkerer (<span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Arch</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Debian</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">CachyOS</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Hyprland</span>), building with ESP32, Arduino, and local AI tools (<span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Ollama</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">LM Studio</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">LiteLLM</span>).
             </p>
           </div>
 
           <div class="border-l-2 border-hairline hover:border-ink transition-colors pl-6 py-1">
             <span class="font-mono text-xs tracking-wider uppercase text-ink block mb-2">[ COMMUNICATOR ]</span>
-            <p>
-              <strong class="text-ink">Opinion Editor</strong> and former <strong class="text-ink">Managing Editor</strong> of the campus publication, main opinion writer, covering environmental, economic and geopolitical issues; also mentors his younger sister in English journalism.
+            <p id="story-communicator">
+              <strong class="text-ink">Opinion Editor</strong> and former <strong class="text-ink">Managing Editor</strong> of the campus publication; main opinion writer, covering environmental, economic and geopolitical issues; also mentors his younger sister in English journalism.
             </p>
           </div>
 
@@ -313,7 +313,7 @@
       </div>
 
       <!-- "At a glance" Strip with 4 Stat Cells & Count-Up Numbers -->
-      <div class="mt-8 border border-hairline bg-card grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-hairline">
+      <div class="mt-8 border border-hairline bg-card grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-hairline" id="metrics-container">
         
         <div class="p-6 sm:p-8">
           <div class="font-mono text-xs text-ink-subtle uppercase mb-2">[ METRIC 01 ]</div>
@@ -616,7 +616,7 @@
               <!-- Result -->
               <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
                 <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
-                Working physical prototype; rigorously tested water-level accuracy and alert delivery across simulated offline states; currently seeking funding or scholarship research support.
+                Working physical prototype; rigorously tested water-level accuracy and alert delivery across simulated offline states; seeking funding or scholarship support for the flood-monitoring prototype.
               </div>
 
               <!-- Tech tags -->
@@ -942,7 +942,7 @@
               <span class="text-ink font-medium">Mung Bean Coconut-Husk-Ash Study</span>
             </div>
             <div class="text-ink-muted text-xs sm:text-right">
-              Aug 2025 · Soil amendment pH control &amp; germination rate quantitative trials
+              Aug 2025 · effect of coconut husk ash on plant height growth
             </div>
           </div>
 
@@ -983,17 +983,14 @@
 
             <div class="space-y-4 font-sans text-sm sm:text-base text-ink-muted leading-relaxed mb-8">
               <p>
-                As central Luzon positions itself as a potential semiconductor staging ground, local development narratives frequently celebrate high-level industrial investment without addressing the local municipal infrastructure, energy grids, and water rights required to sustain microchip fabrication.
-              </p>
-              <p>
-                In this inquiry, question-driven framing meets field-level reporting: weighing the national technological sovereignty argument against rural environmental realities in Capas, Tarlac.
+                [ SUMMARY ]
               </p>
             </div>
           </div>
 
           <div class="pt-6 border-t border-hairline flex items-center justify-between font-mono text-xs">
             <span class="text-ink-subtle">TOPIC: GEOPOLITICS &amp; INDUSTRY</span>
-            <span class="text-terracotta font-semibold">[ READ ]</span>
+            <span id="featured-read-link"></span>
           </div>
         </article>
 
@@ -1007,11 +1004,11 @@
               Deployable Real-Time Non-Contact Flood Monitoring System Using Computer Vision and Decentralized Multi-Path Communication Network
             </h4>
             <p class="font-sans text-xs text-ink-muted mb-4">
-              Formal IMRAD paper establishing the hardware design, image processing model, and resilient transmission protocols in severe weather conditions.
+              [ SUMMARY ]
             </p>
             <div class="flex items-center justify-between font-mono text-xs pt-3 border-t border-hairline">
               <span class="text-ink-subtle">[ DATE ] · RESEARCH</span>
-              <span class="text-terracotta font-medium">[ READ PAPER ]</span>
+              <span id="imrad-read-link"></span>
             </div>
           </div>
 
@@ -1021,37 +1018,8 @@
               OPINION COLUMNS &amp; DISPATCHES
             </div>
 
-            <div class="py-4">
-              <div class="flex justify-between font-mono text-[11px] text-ink-subtle mb-1">
-                <span>[ DATE ]</span>
-                <span class="text-terracotta">ENVIRONMENT</span>
-              </div>
-              <h5 class="font-serif text-base text-ink font-normal mb-2">
-                Monsoon Preparedness and the Fragility of Riverbank Infrastructure
-              </h5>
-              <span class="font-mono text-xs text-ink-muted hover:text-terracotta transition-colors">[ READ ]</span>
-            </div>
-
-            <div class="py-4">
-              <div class="flex justify-between font-mono text-[11px] text-ink-subtle mb-1">
-                <span>[ DATE ]</span>
-                <span class="text-terracotta">ECONOMY</span>
-              </div>
-              <h5 class="font-serif text-base text-ink font-normal mb-2">
-                Small-Scale Logistics Under Inflationary Pressure in Central Luzon
-              </h5>
-              <span class="font-mono text-xs text-ink-muted hover:text-terracotta transition-colors">[ READ ]</span>
-            </div>
-
-            <div class="pt-4">
-              <div class="flex justify-between font-mono text-[11px] text-ink-subtle mb-1">
-                <span>[ DATE ]</span>
-                <span class="text-terracotta">GEOPOLITICS</span>
-              </div>
-              <h5 class="font-serif text-base text-ink font-normal mb-2">
-                Regional Supply Chains and the Realities of Local Governance
-              </h5>
-              <span class="font-mono text-xs text-ink-muted hover:text-terracotta transition-colors">[ READ ]</span>
+            <div id="writing-columns-container">
+              <!-- Hydrated from site.json -->
             </div>
 
           </div>
@@ -1254,7 +1222,7 @@
               <div class="font-mono text-xs text-ink-subtle mb-1">AUG 2025</div>
               <h4 class="font-bold text-base text-ink">Mung Bean Coconut-Husk-Ash Growth Study</h4>
               <p class="text-xs text-ink-muted mt-1 leading-relaxed">
-                Controlled experimental analysis on organic agricultural amendments and nutrient absorption in legume seedlings.
+                effect of coconut husk ash on plant height growth.
               </p>
             </div>
 
@@ -1266,7 +1234,7 @@
             <div class="space-y-1.5 text-ink-muted">
               <div>• Philippine Law &amp; Jurisprudence (Spaced repetition via Anki)</div>
               <div>• Quantitative Finance &amp; Financial Accounting</div>
-              <div>• Discrete Component Electronics &amp; RF Circuitry</div>
+              <div>• Electronics &amp; embedded systems</div>
             </div>
           </div>
         </div>
@@ -1298,25 +1266,22 @@
 
             <div class="p-4 flex items-center justify-between">
               <div>
-                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">DIVISION</span>
                 <span class="text-ink font-semibold">MSSPC: 1st Runner-Up, Collaborative Writing</span>
-                <span class="block text-[11px] text-ink-subtle ml-8">(Served as Managing Editor)</span>
+                <span class="block text-[11px] text-ink-subtle">(Served as Managing Editor)</span>
               </div>
               <span class="text-ink-subtle">[ DATE ]</span>
             </div>
 
             <div class="p-4 flex items-center justify-between">
               <div>
-                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">DIVISION</span>
                 <span class="text-ink font-semibold">MSSPC: 3rd Place, Editorial Writing</span>
-                <span class="block text-[11px] text-terracotta ml-8 font-medium">→ DSPC Qualifier (Editorial)</span>
+                <span class="block text-[11px] text-terracotta font-medium">→ DSPC Qualifier (Editorial)</span>
               </div>
               <span class="text-ink-subtle">[ DATE ]</span>
             </div>
 
             <div class="p-4 flex items-center justify-between">
               <div>
-                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">DIVISION</span>
                 <span class="text-ink font-semibold">MSSPC: 8th Place, Column Writing</span>
               </div>
               <span class="text-ink-subtle">[ DATE ]</span>
@@ -1330,10 +1295,6 @@
               <span class="text-ink-subtle">[ DATE ]</span>
             </div>
 
-          </div>
-
-          <div class="p-4 bg-inset/40 border border-hairline font-mono text-[11px] text-ink-subtle leading-normal">
-            NOTE: Acronyms preserved per authentic accreditation: MSSPC and DSPC represent scholastic journalism competitions. No unverified ranks or dates appended.
           </div>
         </div>
 
@@ -1377,7 +1338,7 @@
           <div class="text-terracotta font-semibold mb-2">[ PEDAGOGY ]</div>
           <h4 class="text-sm font-bold text-ink mb-2">Sister's Journalism Curriculum</h4>
           <p class="font-sans text-xs text-ink-muted leading-relaxed">
-            Designed and executed a structured 44-day journalism curriculum for his younger sister, covering headline construction, editorial ethics, and English news writing.
+            Designed and executed a structured 44-day journalism and English writing curriculum for his younger sister.
           </p>
         </div>
 
@@ -1458,7 +1419,7 @@
                 <li>Authored lead editorials and analytical columns covering regional environmental and geopolitical topics.</li>
                 <li>Directed collaborative writing desk to 1st Runner-Up standing at division MSSPC.</li>
                 <li>Qualified for DSPC in Editorial Writing after placing 3rd in division competition.</li>
-                <li>Formulated and instructed a 44-day journalism training program for foundational English news reporting.</li>
+                <li>Formulated and instructed a structured 44-day journalism and English writing curriculum for his younger sister.</li>
               </ul>
             </div>
           </div>
@@ -1557,20 +1518,23 @@
             <span class="text-status-green">PORT: OPEN</span>
           </div>
 
-          <form  class="space-y-5 font-mono text-xs">
+          <form id="contact-form" class="space-y-5 font-mono text-xs">
+            <!-- Honeypot -->
+            <input type="text" name="_honey" id="honey" style="display:none" tabindex="-1" autocomplete="off">
+            
             <div>
-              <label class="block text-ink-subtle uppercase mb-1">OPERATOR // NAME</label>
-              <input type="text" required placeholder="Dr. / Engr. / Editor / Reader" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
+              <label class="block text-ink-subtle uppercase mb-1" for="form-name">OPERATOR // NAME</label>
+              <input type="text" id="form-name" required placeholder="Dr. / Engr. / Editor / Reader" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
             </div>
 
             <div>
-              <label class="block text-ink-subtle uppercase mb-1">RETURN ROUTE // EMAIL</label>
-              <input type="email" required placeholder="contact@institution.org" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
+              <label class="block text-ink-subtle uppercase mb-1" for="form-email">RETURN ROUTE // EMAIL</label>
+              <input type="email" id="form-email" required placeholder="contact@institution.org" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
             </div>
 
             <div>
-              <label class="block text-ink-subtle uppercase mb-1">SUBJECT // CLASSIFICATION</label>
-              <select class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
+              <label class="block text-ink-subtle uppercase mb-1" for="form-subject">SUBJECT // CLASSIFICATION</label>
+              <select id="form-subject" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
                 <option>Capstone Research &amp; Prototype Funding</option>
                 <option>Editorial / Guest Writing Inquiry</option>
                 <option>Academic &amp; Scholarship Collaboration</option>
@@ -1580,19 +1544,21 @@
             </div>
 
             <div>
-              <label class="block text-ink-subtle uppercase mb-1">TRANSMISSION PAYLOAD // MESSAGE</label>
-              <textarea rows="4" required placeholder="State your inquiry, hardware context, or research proposal..." class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta"></textarea>
+              <label class="block text-ink-subtle uppercase mb-1" for="form-message">TRANSMISSION PAYLOAD // MESSAGE</label>
+              <textarea id="form-message" rows="4" required placeholder="State your inquiry, hardware context, or research proposal..." class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta"></textarea>
             </div>
 
             <div class="pt-2">
-              <button type="submit" class="w-full py-3.5 bg-terracotta text-card font-mono text-xs tracking-wider uppercase font-semibold hover:bg-terracotta/90 transition-colors flex items-center justify-center gap-2">
+              <button id="form-submit" type="submit" class="w-full py-3.5 bg-terracotta text-card font-mono text-xs tracking-wider uppercase font-semibold hover:bg-terracotta/90 transition-colors flex items-center justify-center gap-2">
                 <span>[ TRANSMIT PACKET ]</span>
-                <span>→</span>
               </button>
             </div>
             
             <div id="transmit-status" class="hidden text-center text-status-green font-mono text-xs pt-2">
-              ✓ TRANSMISSION BUFFERED: ACKNOWLEDGED RECEIPT
+              V TRANSMISSION BUFFERED: ACKNOWLEDGED RECEIPT
+            </div>
+            <div id="transmit-error" class="hidden text-center text-red-600 font-mono text-xs pt-2">
+              X TRANSMISSION FAILED. PLEASE TRY DIRECT EMAIL.
             </div>
           </form>
         </div>
@@ -1605,7 +1571,7 @@
             <span class="font-mono text-xs text-terracotta uppercase font-bold block mb-2">[ RESEARCH NOTICE ]</span>
             <h4 class="font-sans text-xl font-bold text-ink mb-3">Seeking Prototype Support</h4>
             <p class="font-sans text-xs sm:text-sm text-ink-muted leading-relaxed mb-4">
-              Actively seeking academic mentorship, research grants, or scholarship opportunities to scale the Non-Contact Flood Monitoring prototype into field deployment trials across flood-prone municipalities in Tarlac.
+              Actively seeking academic mentorship, research grants, or scholarship opportunities to scale the Non-Contact Flood Monitoring prototype into seeking funding or scholarship support for the flood-monitoring prototype.
             </p>
             <div class="font-mono text-xs text-ink-subtle">
               LOCATION: CAPAS / TARLAC · PH
@@ -1620,7 +1586,7 @@
 
             <div class="flex items-center justify-between">
               <span class="text-ink-subtle">EMAIL:</span>
-              <span class="text-ink">[ EMAIL ]</span>
+              <span class="text-ink" id="contact-email"></span>
             </div>
 
             <div class="flex items-center justify-between">
