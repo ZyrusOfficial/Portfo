@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince Zyrus Natividad | Builder &amp; Opinion Editor</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="selection:bg-terracotta selection:text-white antialiased">
+
+  <!-- Desktop Interactive Cursor -->
+  <div id="cursor-dot" class="custom-cursor-dot hidden lg:block"></div>
+  <div id="cursor-ring" class="custom-cursor-ring hidden lg:block"></div>
+
+  <!-- TOP UTILITY / SYSTEM STATUS BAR -->
+  <aside class="w-full bg-[#E4E0D6] border-b border-hairline py-1.5 px-4 text-xs font-mono tracking-tight text-ink-muted">
+    <div class="max-w-[1240px] mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-status-green animate-pulse"></span>
+          <span class="text-ink font-medium">NODE // TARLAC-PH</span>
+        </span>
+        <span class="text-hairline">|</span>
+        <span class="hidden sm:inline">ARCHIVE v2.6.4</span>
+        <span class="hidden md:inline text-ink-subtle">DOMAIN: <strong class="text-ink">zyrus.dpdns.org</strong></span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="hidden sm:inline">TIME: <span id="telemetry-time">00:00:00 UTC</span></span>
+
+      </div>
+    </div>
+  </aside>
+
+  <!-- 0. STICKY MASTHEAD -->
+  <header id="masthead" class="sticky top-0 z-50 w-full bg-ground/90 backdrop-blur-md border-b border-hairline transition-all duration-300">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Brand Left -->
+      <a href="#hero" class="group flex items-center space-x-2 font-mono text-sm tracking-wider text-ink">
+        <span class="w-2 h-2 bg-terracotta inline-block group-hover:rotate-45 transition-transform"></span>
+        <span class="font-semibold">ZYRUS // SYSTEMS ARCHITECTURE</span>
+      </a>
+
+      <!-- Center Status Pill -->
+      <div class="hidden xl:flex items-center px-3 py-1 bg-card rounded-full border border-hairline text-xs font-mono text-ink-muted">
+        <span class="w-1.5 h-1.5 rounded-full bg-terracotta mr-2"></span>
+        <span>DOMINICAN COLLEGE OF TARLAC · GRADE 11 ABM</span>
+      </div>
+
+      <!-- Right Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-6 text-xs font-mono uppercase tracking-wider">
+        <a href="#story" class="nav-link py-1 relative text-ink hover:text-terracotta transition-colors">Story</a>
+        <a href="#capabilities" class="nav-link py-1 relative text-ink hover:text-terracotta transition-colors">Capabilities</a>
+        <a href="#work" class="nav-link py-1 relative text-ink hover:text-terracotta transition-colors">Work</a>
+        <a href="#writing" class="nav-link py-1 relative text-ink hover:text-terracotta transition-colors">Writing</a>
+        <a href="#lab" class="nav-link py-1 relative text-ink hover:text-terracotta transition-colors">Lab</a>
+        <a href="#journey" class="nav-link py-1 relative text-ink hover:text-terracotta transition-colors">Journey</a>
+        <a href="#resume" class="nav-link py-1 relative text-terracotta font-medium hover:underline">Resume</a>
+        <a href="#contact" class="px-3 py-1.5 border border-ink text-ink hover:bg-ink hover:text-ground transition-all">[ CONTACT ]</a>
+      </nav>
+
+      <!-- Mobile Menu Trigger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-ink border border-hairline bg-card font-mono text-xs" aria-label="Toggle Navigation">
+        [ MENU ]
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-hairline bg-card px-6 py-6 font-mono text-sm uppercase space-y-4">
+      <div class="pb-3 border-b border-hairline text-xs text-ink-subtle">
+        STATUS: DOMINICAN COLLEGE OF TARLAC · GRADE 11 ABM
+      </div>
+      <a href="#story" class="block text-ink hover:text-terracotta" >01 / Story</a>
+      <a href="#capabilities" class="block text-ink hover:text-terracotta" >02 / Capabilities</a>
+      <a href="#work" class="block text-ink hover:text-terracotta" >03 / Work</a>
+      <a href="#writing" class="block text-ink hover:text-terracotta" >04 / Writing</a>
+      <a href="#lab" class="block text-ink hover:text-terracotta" >05 / Lab</a>
+      <a href="#journey" class="block text-ink hover:text-terracotta" >06 / Journey &amp; Recognition</a>
+      <a href="#resume" class="block text-terracotta font-semibold" >07 / Full Resume</a>
+      <a href="#contact" class="block text-ink border border-ink text-center py-2 bg-ground" >[ TRANSMISSION CONSOLE ]</a>
+    </div>
+  </header>
+
+  <!-- MAIN SCROLLING CONTENT CONTAINER (12-column Swiss grid max-w 1240px) -->
+  <main class="max-w-[1240px] mx-auto px-4 sm:px-6">
+
+    <!-- 1. HERO SECTION (65/35 Split) -->
+    <section id="hero" class="pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-hairline">
+      
+      <!-- Top Folio Bar -->
+      <div class="flex items-center justify-between pb-6 mb-8 border-b border-hairline text-xs font-mono text-ink-subtle tracking-wider uppercase">
+        <div class="flex items-center space-x-2">
+          <span class="text-terracotta font-semibold">[ FOLIO: 2026.04 ]</span>
+          <span>//</span>
+          <span>ZYRUS ARCHIVE · PORTFOLIO · RESUME</span>
+        </div>
+        <div class="hidden sm:block text-right">
+          <span>LAT 15.3242° N · LON 120.5901° E</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        
+        <!-- Left Column (65% -> 8 cols) -->
+        <div class="lg:col-span-7 xl:col-span-8 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 mb-4 px-2.5 py-1 bg-inset border border-hairline rounded text-xs font-mono text-ink">
+              <span class="w-2 h-2 rounded-full bg-status-green"></span>
+              <span>AVAILABLE FOR CAPSTONE FUNDING &amp; SCHOLARSHIP RESEARCH</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl xl:text-7xl font-sans font-bold tracking-tighter text-ink leading-[1.05] mb-6">
+              Code. Circuits. <br />
+              <span class="text-terracotta font-serif font-normal italic">Columns.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-ink-muted font-normal max-w-2xl leading-relaxed mb-8">
+              I build resilient hardware and AI systems, then write about the world they operate in.
+            </p>
+
+            <!-- Discipline Chips -->
+            <div class="flex flex-wrap gap-2 mb-10 font-mono text-xs text-ink">
+              <span class="px-3 py-1.5 bg-card border border-hairline">EMBEDDED</span>
+              <span class="px-3 py-1.5 bg-card border border-hairline">LINUX</span>
+              <span class="px-3 py-1.5 bg-card border border-hairline">LOCAL AI</span>
+              <span class="px-3 py-1.5 bg-card border border-hairline">ALGO TRADING</span>
+              <span class="px-3 py-1.5 bg-card border border-hairline text-terracotta font-medium">JOURNALISM</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-hairline/60">
+            <a href="#work" class="px-6 py-3.5 bg-terracotta text-card font-mono text-xs tracking-wider uppercase font-medium hover:bg-terracotta/90 transition-colors shadow-sm flex items-center gap-2">
+              <span>[ VIEW PROJECTS ]</span>
+              <span>↓</span>
+            </a>
+            <a href="#resume" class="px-6 py-3.5 bg-card border border-ink text-ink font-mono text-xs tracking-wider uppercase font-medium hover:bg-ink hover:text-ground transition-colors flex items-center gap-2">
+              <span>[ DOWNLOAD RESUME ]</span>
+              <span>↗</span>
+            </a>
+            <span class="text-xs font-mono text-ink-subtle ml-2 hidden sm:inline">REF: ZYRUS-DOSSIER-2026</span>
+          </div>
+        </div>
+
+        <!-- Right Column (35% -> 5/4 cols) - SYSTEM SPEC SHEET -->
+        <div class="lg:col-span-5 xl:col-span-4">
+          <div class="bg-card border border-hairline p-6 sm:p-7 relative shadow-sm">
+            
+            <!-- Card Header -->
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-hairline font-mono text-xs">
+              <span class="font-semibold text-ink tracking-wider">[ SYSTEM SPEC SHEET ]</span>
+              <span class="text-terracotta font-medium">REV 1.4</span>
+            </div>
+
+            <!-- Key-Value Rows (Telemetry style) -->
+            <div class="space-y-3 font-mono text-xs mb-6">
+              <div class="flex justify-between py-1 border-b border-hairline/40">
+                <span class="text-ink-subtle">NAME:</span>
+                <span class="text-ink font-medium">Prince Zyrus Natividad</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-hairline/40">
+                <span class="text-ink-subtle">BASE:</span>
+                <span class="text-ink">Tarlac, PH (15°N, 120°E)</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-hairline/40">
+                <span class="text-ink-subtle">TRACK:</span>
+                <span class="text-ink font-medium text-terracotta">STE → ABM</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-hairline/40">
+                <span class="text-ink-subtle">RUNTIME:</span>
+                <span class="text-ink">Linux · Ollama · LM Studio</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-hairline/40">
+                <span class="text-ink-subtle">ROLE:</span>
+                <span class="text-ink">Opinion Editor</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-hairline/40">
+                <span class="text-ink-subtle">STATUS:</span>
+                <span class="text-status-green font-medium inline-flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-status-green animate-ping"></span>
+                  Building <span class="cursor-blink">_</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Node-Topology Vector Trace Graphic -->
+            <div class="mt-4 pt-4 border-t border-hairline bg-inset/40 p-3 rounded">
+              <div class="flex items-center justify-between text-[11px] font-mono text-ink-subtle mb-2">
+                <span>TOPOLOGY TRACE: SENSOR → MESH</span>
+                <span>4.8 kbps</span>
+              </div>
+              <svg viewBox="0 0 320 90" class="w-full h-auto text-ink" fill="none" stroke="currentColor">
+                <!-- Grid background subtle -->
+                <line x1="0" y1="45" x2="320" y2="45" stroke="#D8D3C8" stroke-width="0.75" stroke-dasharray="2,2"/>
+                <line x1="80" y1="0" x2="80" y2="90" stroke="#D8D3C8" stroke-width="0.75" stroke-dasharray="2,2"/>
+                <line x1="160" y1="0" x2="160" y2="90" stroke="#D8D3C8" stroke-width="0.75" stroke-dasharray="2,2"/>
+                <line x1="240" y1="0" x2="240" y2="90" stroke="#D8D3C8" stroke-width="0.75" stroke-dasharray="2,2"/>
+                
+                <!-- Circuit trace -->
+                <path d="M 20 45 L 75 45 L 120 20 L 195 20 L 235 65 L 290 65" stroke="#1C1B1A" stroke-width="1.5" stroke-linejoin="round"/>
+                
+                <!-- Animated Dashed Packet Stream -->
+                <path d="M 20 45 L 75 45 L 120 20 L 195 20 L 235 65 L 290 65" stroke="#9A5B32" stroke-width="1.75" class="flow-wire" stroke-linejoin="round"/>
+                
+                <!-- Nodes -->
+                <circle cx="20" cy="45" r="4" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <circle cx="75" cy="45" r="3" fill="#9A5B32"/>
+                <circle cx="120" cy="20" r="4.5" fill="#F5F3EC" stroke="#9A5B32" stroke-width="1.5"/>
+                <circle cx="195" cy="20" r="3" fill="#1C1B1A"/>
+                <circle cx="235" cy="65" r="3" fill="#3F6E4C"/>
+                <circle cx="290" cy="65" r="5" fill="#9A5B32"/>
+
+                <!-- Node Labels -->
+                <text x="18" y="65" font-family="monospace" font-size="8" fill="#5C5854">ESP32</text>
+                <text x="110" y="14" font-family="monospace" font-size="8" fill="#9A5B32">BLE MESH</text>
+                <text x="270" y="82" font-family="monospace" font-size="8" fill="#1C1B1A">GATEWAY</text>
+              </svg>
+            </div>
+
+            <!-- Footer indicator -->
+            <div class="mt-4 flex items-center justify-between text-[11px] font-mono text-ink-subtle">
+              <span>LOC: CAPAS // TARLAC</span>
+              <span>SYS_OK // 0 ERR</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. 01 / STORY (About Section + At a glance stats) -->
+    <section id="story" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 01 / STORY ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            From circuits to columns: <span class="font-serif italic font-normal text-ink-muted">a dual practice.</span>
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          CHRONICLE &amp; CONTEXT
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+        
+        <!-- Portrait Placeholder with Hairline Frame & Caption (4 cols) -->
+        <div class="lg:col-span-4">
+          <div class="border border-hairline bg-card p-3">
+            <div class="aspect-[4/5] bg-inset border border-hairline flex flex-col items-center justify-center relative overflow-hidden group">
+              <!-- Grid marks in placeholder -->
+              <div class="absolute inset-0 bg-[radial-gradient(#D8D3C8_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+              
+              <div class="z-10 text-center p-6">
+                <span class="font-mono text-xs px-2 py-1 bg-card border border-hairline text-ink-muted">[ PHOTO ]</span>
+                <p class="font-mono text-[11px] text-ink-subtle mt-3 max-w-[200px]">
+                  PRINCE ZYRUS NATIVIDAD ARCHIVE PORTRAIT
+                </p>
+                <div class="mt-4 inline-block font-mono text-[10px] text-terracotta">
+                  1280 × 1600 · 300 DPI
+                </div>
+              </div>
+
+              <!-- Corner brackets -->
+              <span class="absolute top-2 left-2 font-mono text-[10px] text-ink-subtle">┌</span>
+              <span class="absolute top-2 right-2 font-mono text-[10px] text-ink-subtle">┐</span>
+              <span class="absolute bottom-2 left-2 font-mono text-[10px] text-ink-subtle">└</span>
+              <span class="absolute bottom-2 right-2 font-mono text-[10px] text-ink-subtle">┘</span>
+            </div>
+            <div class="mt-3 px-1 py-1 flex items-center justify-between font-mono text-xs text-ink-subtle">
+              <span>FIG 1.0 // FOUNDER</span>
+              <span>TARLAC, PH</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three narrative paragraphs (8 cols) -->
+        <div class="lg:col-span-8 space-y-8 font-sans text-base sm:text-lg text-ink-muted leading-relaxed">
+          
+          <div class="border-l-2 border-terracotta pl-6 py-1">
+            <span class="font-mono text-xs tracking-wider uppercase text-terracotta block mb-2">[ FOUNDATION ]</span>
+            <p>
+              Completed Grade 10 in the <strong class="text-ink">Science, Technology and Engineering (STE) program</strong> at Capas National High School; now in <strong class="text-ink">Accountancy, Business and Management (ABM)</strong> at Dominican College of Tarlac. The shift mirrors the work: from raw embedded systems toward market systems.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-hairline hover:border-ink transition-colors pl-6 py-1">
+            <span class="font-mono text-xs tracking-wider uppercase text-ink block mb-2">[ BUILDER ]</span>
+            <p>
+              Linux power user and hardware tinkerer (<span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Arch</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Debian</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">CachyOS</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Hyprland</span>), building with ESP32, Arduino, and local AI tools (<span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">Ollama</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">LM Studio</span>, <span class="font-mono text-sm bg-inset px-1.5 py-0.5 text-ink">LiteLLM</span>).
+            </p>
+          </div>
+
+          <div class="border-l-2 border-hairline hover:border-ink transition-colors pl-6 py-1">
+            <span class="font-mono text-xs tracking-wider uppercase text-ink block mb-2">[ COMMUNICATOR ]</span>
+            <p>
+              <strong class="text-ink">Opinion Editor</strong> and former <strong class="text-ink">Managing Editor</strong> of the campus publication, main opinion writer, covering environmental, economic and geopolitical issues; also mentors his younger sister in English journalism.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- "At a glance" Strip with 4 Stat Cells & Count-Up Numbers -->
+      <div class="mt-8 border border-hairline bg-card grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-hairline">
+        
+        <div class="p-6 sm:p-8">
+          <div class="font-mono text-xs text-ink-subtle uppercase mb-2">[ METRIC 01 ]</div>
+          <div class="text-3xl sm:text-4xl font-mono font-bold text-ink mb-1">
+            <span class="count-up" data-target="3">3</span>
+          </div>
+          <div class="text-xs sm:text-sm font-sans text-ink-muted">
+            Working hardware prototypes deployed &amp; tested
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="font-mono text-xs text-ink-subtle uppercase mb-2">[ METRIC 02 ]</div>
+          <div class="text-3xl sm:text-4xl font-mono font-bold text-terracotta mb-1">
+            <span class="count-up" data-target="1">1</span>
+          </div>
+          <div class="text-xs sm:text-sm font-sans text-ink-muted">
+            National Award (DepEd EDUKAMPYON Gawad Parangal)
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="font-mono text-xs text-ink-subtle uppercase mb-2">[ METRIC 03 ]</div>
+          <div class="text-2xl sm:text-3xl font-mono font-bold text-ink mb-1">
+            1st Runner-Up
+          </div>
+          <div class="text-xs sm:text-sm font-sans text-ink-muted">
+            National Robotics Competition (National Level)
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="font-mono text-xs text-ink-subtle uppercase mb-2">[ METRIC 04 ]</div>
+          <div class="text-2xl sm:text-3xl font-mono font-bold text-ink mb-1">
+            Opinion Editor
+          </div>
+          <div class="text-xs sm:text-sm font-sans text-ink-muted">
+            Campus Publication &amp; DSPC Qualifier (Editorial)
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. 02 / CAPABILITIES (4-column Bento) -->
+    <section id="capabilities" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 02 / CAPABILITIES ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            Technical taxonomy &amp; architecture layers.
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          HAIRLINE METRIC AUDIT
+        </div>
+      </div>
+
+      <!-- Bento Grid (4 Columns) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        
+        <!-- 01 HARDWARE & EMBEDDED -->
+        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
+              <span class="text-ink font-semibold">01 / HARDWARE</span>
+              <span class="text-terracotta font-medium">[ PHYSICAL LAYER ]</span>
+            </div>
+            
+            <h3 class="text-lg font-bold font-sans text-ink mb-3">Hardware &amp; Embedded</h3>
+            
+            <p class="text-xs text-ink-muted leading-relaxed mb-6 font-sans">
+              ESP32, ESP32-CAM, Arduino Uno/Nano, ESP8266, Raspberry Pi, LoRa modules, relays, motors, OLED, ultrasonic sensors, circuit design, hardware repair.
+            </p>
+          </div>
+
+          <!-- Proficiency indicators (hairline meters with words) -->
+          <div class="space-y-3 pt-4 border-t border-hairline/60 font-mono text-[11px]">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Circuit Fabrication</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[88%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Microcontrollers</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[92%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">LoRa / Mesh RF</span>
+                <span class="text-terracotta font-medium">Working</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[72%] h-full bg-terracotta"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 SOFTWARE & AI -->
+        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
+              <span class="text-ink font-semibold">02 / SOFTWARE</span>
+              <span class="text-terracotta font-medium">[ APPLICATION / AGENTIC ]</span>
+            </div>
+            
+            <h3 class="text-lg font-bold font-sans text-ink mb-3">Software &amp; Local AI</h3>
+            
+            <p class="text-xs text-ink-muted leading-relaxed mb-6 font-sans">
+              Python, Arduino C++, shell scripting; Ollama, LM Studio, LiteLLM, SiliconFlow, OpenClaw, Claude Code; Qwen, DeepSeek, Gemma.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-hairline/60 font-mono text-[11px]">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Local Inference Runtimes</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[94%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Python / Automation</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[86%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Embedded C++</span>
+                <span class="text-ink font-medium">Working</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[78%] h-full bg-ink"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 SYSTEMS & INFRASTRUCTURE -->
+        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
+              <span class="text-ink font-semibold">03 / SYSTEMS</span>
+              <span class="text-terracotta font-medium">[ NETWORK LAYER ]</span>
+            </div>
+            
+            <h3 class="text-lg font-bold font-sans text-ink mb-3">Systems &amp; Infra</h3>
+            
+            <p class="text-xs text-ink-muted leading-relaxed mb-6 font-sans">
+              Linux (Arch, Debian, CachyOS), Hyprland, WSL2, Docker, QEMU, Vercel, Cloudflare Tunnels, GitHub (ZyrusOfficial).
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-hairline/60 font-mono text-[11px]">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Linux Kernel &amp; WM Custom</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[90%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Cloudflare Tunnels / Proxies</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[85%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Docker Virtualization</span>
+                <span class="text-terracotta font-medium">Working</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[74%] h-full bg-terracotta"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 COMMUNICATION & CREATIVE -->
+        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
+              <span class="text-ink font-semibold">04 / CREATIVE</span>
+              <span class="text-terracotta font-medium">[ EDITORIAL LAYER ]</span>
+            </div>
+            
+            <h3 class="text-lg font-bold font-sans text-ink mb-3">Communication</h3>
+            
+            <p class="text-xs text-ink-muted leading-relaxed mb-6 font-sans">
+              Editorial writing, IMRAD technical writing, DaVinci Resolve, OBS Studio, Figma, Canva, Photoshop, Lightroom, BlenderKit.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-hairline/60 font-mono text-[11px]">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Opinion &amp; Column Writing</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[95%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">IMRAD Research Paper</span>
+                <span class="text-ink font-medium">Advanced</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[88%] h-full bg-ink"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-ink-subtle">Video / Visual Media Suite</span>
+                <span class="text-terracotta font-medium">Working</span>
+              </div>
+              <div class="w-full h-1 bg-inset rounded-full overflow-hidden">
+                <div class="w-[76%] h-full bg-terracotta"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. 03 / WORK (Dossier Case Studies + 2D Vector Schematics) -->
+    <section id="work" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 03 / WORK ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            Selected engineering dossiers &amp; schematics.
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          THREE PRIMARY CASE STUDIES
+        </div>
+      </div>
+
+      <!-- Dossier Cards Stack -->
+      <div class="space-y-12 mb-16">
+        
+        <!-- CASE STUDY A: Non-Contact Flood Monitoring System -->
+        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative">
+          <div class="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
+            <div class="flex items-center space-x-3">
+              <span class="bg-inset px-2.5 py-1 text-ink font-medium border border-hairline">CAPSTONE RESEARCH</span>
+              <span class="text-ink-subtle">Jan–Mar 2026</span>
+            </div>
+            <div class="text-terracotta font-semibold">
+              REF: ZYRUS-PROJ-FLDMN-01
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <div class="lg:col-span-7 space-y-6">
+              <h3 class="text-2xl sm:text-3xl font-bold font-sans text-ink">
+                Non-Contact Flood Monitoring System
+              </h3>
+              
+              <!-- Problem Inset Block -->
+              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted">
+                <strong class="font-mono text-xs text-terracotta block uppercase tracking-wider mb-1">[ PROBLEM ]</strong>
+                Flood alerts fail when internet and power fail. Physical water sensors suffer corrosion and debris obstruction during typhoon surge conditions.
+              </div>
+
+              <!-- Action -->
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+                <strong class="font-mono text-xs text-ink block uppercase tracking-wider mb-1">[ ACTION ]</strong>
+                Engineered a computer-vision water-level measurement pipeline with resilient multi-path emergency alerts over BitChat/Bluetooth mesh, SMS, and Telegram fallback channels.
+              </div>
+
+              <!-- Result -->
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+                <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
+                Working physical prototype; rigorously tested water-level accuracy and alert delivery across simulated offline states; currently seeking funding or scholarship research support.
+              </div>
+
+              <!-- Tech tags -->
+              <div class="flex flex-wrap gap-2 pt-2 font-mono text-xs">
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Computer Vision</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">ESP32-CAM</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">BitChat / BLE Mesh</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">SMS Gateway</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Telegram Bot API</span>
+              </div>
+            </div>
+
+            <!-- Vector Schematic Diagram A: Sensor Node -> Three Alert Paths -->
+            <div class="lg:col-span-5 bg-inset/50 border border-hairline p-5">
+              <div class="flex justify-between items-center font-mono text-[11px] text-ink-subtle pb-3 mb-3 border-b border-hairline">
+                <span>SCHEMATIC 01 // MULTI-PATH DISPATCH</span>
+                <span class="text-terracotta">ONLINE</span>
+              </div>
+
+              <svg viewBox="0 0 340 220" class="w-full h-auto text-ink" fill="none" stroke="currentColor">
+                <!-- Water surface line -->
+                <path d="M 20 190 Q 60 185 100 190 T 180 190 T 260 190 T 320 190" stroke="#3F6E4C" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <text x="20" y="208" font-family="monospace" font-size="9" fill="#3F6E4C">[ WATER LEVEL BENCHMARK ]</text>
+
+                <!-- Sensor Node Box -->
+                <rect x="20" y="30" width="90" height="90" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="28" y="50" font-family="monospace" font-size="9" font-weight="bold" fill="#1C1B1A">SENSOR NODE</text>
+                <text x="28" y="65" font-family="monospace" font-size="8" fill="#5C5854">ESP32-CAM</text>
+                <text x="28" y="78" font-family="monospace" font-size="8" fill="#5C5854">+ OPTICAL</text>
+                <text x="28" y="102" font-family="monospace" font-size="8" fill="#9A5B32">CV EDGE PROC</text>
+
+                <!-- Signal Split Paths -->
+                <!-- Path 1: BLE Mesh -->
+                <path d="M 110 50 L 170 50 L 210 35 L 230 35" stroke="#1C1B1A" stroke-width="1.5"/>
+                <path d="M 110 50 L 170 50 L 210 35 L 230 35" stroke="#9A5B32" stroke-width="1.75" class="flow-wire"/>
+                <rect x="230" y="18" width="95" height="34" fill="#F5F3EC" stroke="#9A5B32" stroke-width="1.5"/>
+                <text x="238" y="33" font-family="monospace" font-size="8" font-weight="bold" fill="#9A5B32">PATH 1: BLE MESH</text>
+                <text x="238" y="44" font-family="monospace" font-size="7" fill="#5C5854">BitChat (Zero Internet)</text>
+
+                <!-- Path 2: SMS -->
+                <path d="M 110 75 L 230 75" stroke="#1C1B1A" stroke-width="1.5"/>
+                <path d="M 110 75 L 230 75" stroke="#9A5B32" stroke-width="1.75" class="flow-wire"/>
+                <rect x="230" y="58" width="95" height="34" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="238" y="73" font-family="monospace" font-size="8" font-weight="bold" fill="#1C1B1A">PATH 2: GSM / SMS</text>
+                <text x="238" y="84" font-family="monospace" font-size="7" fill="#5C5854">Cellular Fallback</text>
+
+                <!-- Path 3: Telegram -->
+                <path d="M 110 100 L 170 100 L 210 120 L 230 120" stroke="#1C1B1A" stroke-width="1.5"/>
+                <path d="M 110 100 L 170 100 L 210 120 L 230 120" stroke="#9A5B32" stroke-width="1.75" class="flow-wire"/>
+                <rect x="230" y="103" width="95" height="34" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="238" y="118" font-family="monospace" font-size="8" font-weight="bold" fill="#1C1B1A">PATH 3: TELEGRAM</text>
+                <text x="238" y="129" font-family="monospace" font-size="7" fill="#5C5854">Cloud Alert Broadcast</text>
+              </svg>
+
+              <div class="mt-3 text-[10px] font-mono text-ink-subtle flex justify-between">
+                <span>REDUNDANCY: 3-TIER PASSIVE</span>
+                <span>LATENCY: &lt;1.8s</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- CASE STUDY B: Hat-a-See -->
+        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative">
+          <div class="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
+            <div class="flex items-center space-x-3">
+              <span class="bg-inset px-2.5 py-1 text-ink font-medium border border-hairline">ASSISTIVE HARDWARE</span>
+              <span class="text-ink-subtle">PROTOTYPE COMPLETED</span>
+            </div>
+            <div class="text-terracotta font-semibold">
+              REF: ZYRUS-PROJ-HATSEE-02
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <div class="lg:col-span-7 space-y-6">
+              <h3 class="text-2xl sm:text-3xl font-bold font-sans text-ink">
+                Hat-a-See: Wearable Assistive Hat
+              </h3>
+              
+              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted">
+                <strong class="font-mono text-xs text-terracotta block uppercase tracking-wider mb-1">[ PROBLEM ]</strong>
+                Visually impaired individuals face head-level obstacles that traditional canes cannot detect; existing sensor hats trigger echo crosstalk and disorienting feedback.
+              </div>
+
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+                <strong class="font-mono text-xs text-ink block uppercase tracking-wider mb-1">[ ACTION ]</strong>
+                Integrated Arduino UNO, HC-SR04 ultrasonic sensors, vibration motors, and a micro servo. Programmed step-scan servo logic and sequential sensor firing to completely eliminate acoustic crosstalk, paired with dynamic distance-based vibration pulse rates.
+              </div>
+
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+                <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
+                Full hardware and firmware lifecycle completed with wiring plans, user guide, and presentation.
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-2 font-mono text-xs">
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Arduino UNO</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">HC-SR04</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Sequential Firing</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Haptic Motor Array</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Step-Scan Servo</span>
+              </div>
+            </div>
+
+            <!-- Vector Schematic Diagram B: Sensor Array -> Controller -> Motor Feedback -->
+            <div class="lg:col-span-5 bg-inset/50 border border-hairline p-5">
+              <div class="flex justify-between items-center font-mono text-[11px] text-ink-subtle pb-3 mb-3 border-b border-hairline">
+                <span>SCHEMATIC 02 // CROSSTALK ISOLATION</span>
+                <span class="text-terracotta">CLOSED LOOP</span>
+              </div>
+
+              <svg viewBox="0 0 340 220" class="w-full h-auto text-ink" fill="none" stroke="currentColor">
+                <!-- Sensor Array -->
+                <rect x="20" y="30" width="80" height="40" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="26" y="47" font-family="monospace" font-size="8" font-weight="bold" fill="#1C1B1A">ULTRASONIC L</text>
+                <text x="26" y="60" font-family="monospace" font-size="7" fill="#9A5B32">HC-SR04 [SEQ 1]</text>
+
+                <rect x="20" y="85" width="80" height="40" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="26" y="102" font-family="monospace" font-size="8" font-weight="bold" fill="#1C1B1A">ULTRASONIC C</text>
+                <text x="26" y="115" font-family="monospace" font-size="7" fill="#9A5B32">STEP SERVO [SEQ 2]</text>
+
+                <rect x="20" y="140" width="80" height="40" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="26" y="157" font-family="monospace" font-size="8" font-weight="bold" fill="#1C1B1A">ULTRASONIC R</text>
+                <text x="26" y="170" font-family="monospace" font-size="7" fill="#9A5B32">HC-SR04 [SEQ 3]</text>
+
+                <!-- Processing Core -->
+                <path d="M 100 50 L 145 105" stroke="#1C1B1A" stroke-width="1.25"/>
+                <path d="M 100 105 L 145 105" stroke="#1C1B1A" stroke-width="1.25"/>
+                <path d="M 100 160 L 145 105" stroke="#1C1B1A" stroke-width="1.25"/>
+
+                <rect x="145" y="70" width="80" height="70" fill="#F5F3EC" stroke="#9A5B32" stroke-width="1.5"/>
+                <text x="153" y="92" font-family="monospace" font-size="8" font-weight="bold" fill="#9A5B32">ARDUINO UNO</text>
+                <text x="153" y="105" font-family="monospace" font-size="7" fill="#1C1B1A">PING ARBITER</text>
+                <text x="153" y="118" font-family="monospace" font-size="7" fill="#5C5854">DIST → PULSE Hz</text>
+
+                <!-- Output Feedback -->
+                <path d="M 225 105 L 260 105" stroke="#1C1B1A" stroke-width="1.5"/>
+                <path d="M 225 105 L 260 105" stroke="#9A5B32" stroke-width="1.75" class="flow-wire"/>
+
+                <rect x="260" y="75" width="70" height="60" fill="#F5F3EC" stroke="#1C1B1A" stroke-width="1.5"/>
+                <text x="266" y="96" font-family="monospace" font-size="8" font-weight="bold" fill="#1C1B1A">HAPTIC</text>
+                <text x="266" y="108" font-family="monospace" font-size="7" fill="#5C5854">MOTOR ARRAY</text>
+                <text x="266" y="120" font-family="monospace" font-size="7" fill="#3F6E4C">PULSE RATE</text>
+              </svg>
+
+              <div class="mt-3 text-[10px] font-mono text-ink-subtle flex justify-between">
+                <span>INTERLEAVED CYCLE: 45ms</span>
+                <span>ZERO ECHO CLASH</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- CASE STUDY C: Quantitative Trading Pipeline -->
+        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative">
+          <div class="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
+            <div class="flex items-center space-x-3">
+              <span class="bg-inset px-2.5 py-1 text-ink font-medium border border-hairline">QUANT PIPELINE</span>
+              <span class="text-terracotta font-medium">STATUS: FINAL TESTING</span>
+            </div>
+            <div class="text-terracotta font-semibold">
+              REF: ZYRUS-PROJ-TRADE-03
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <div class="lg:col-span-7 space-y-6">
+              <h3 class="text-2xl sm:text-3xl font-bold font-sans text-ink">
+                Quantitative Trading Pipeline
+              </h3>
+              
+              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted">
+                <strong class="font-mono text-xs text-terracotta block uppercase tracking-wider mb-1">[ PROBLEM ]</strong>
+                Standard machine learning models overfit on non-stationary market time-series, yielding spurious backtests without robust statistical deflators or combinatorial cross-validation.
+              </div>
+
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+                <strong class="font-mono text-xs text-ink block uppercase tracking-wider mb-1">[ ACTION ]</strong>
+                Constructed a nine-notebook pipeline following Marcos López de Prado methodology: fractional differentiation, triple-barrier labeling, meta-labeling, purged cross-validation, CPCV, Deflated Sharpe Ratio; multi-agent design with a live micro-capital track on Alpaca.
+              </div>
+
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+                <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
+                Final testing phase. Complete methodology implemented without heuristic curve-fitting. (Note: no performance claims or ROI claims presented, in compliance with scientific rigor).
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-2 font-mono text-xs">
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Fractional Diff (d)</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Triple-Barrier</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Meta-Labeling</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Purged K-Fold</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">CPCV / DSR</span>
+                <span class="px-2 py-1 bg-ground border border-hairline text-ink">Alpaca API</span>
+              </div>
+            </div>
+
+            <!-- Vector Schematic Diagram C: Pipeline Stages NB0 -> NB8 -->
+            <div class="lg:col-span-5 bg-inset/50 border border-hairline p-5">
+              <div class="flex justify-between items-center font-mono text-[11px] text-ink-subtle pb-3 mb-3 border-b border-hairline">
+                <span>SCHEMATIC 03 // 9-STAGE NOTEBOOK DAG</span>
+                <span class="text-terracotta">NB0 → NB8</span>
+              </div>
+
+              <!-- NB0 to NB8 pipeline grid -->
+              <div class="space-y-2 py-2 font-mono text-xs">
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB0</span>
+                    <span class="text-[11px] text-ink">Data Ingest</span>
+                  </div>
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB1</span>
+                    <span class="text-[11px] text-ink">FracDiff</span>
+                  </div>
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB2</span>
+                    <span class="text-[11px] text-ink">Features</span>
+                  </div>
+                </div>
+
+                <div class="flex justify-center text-ink-subtle text-xs py-0.5">↓</div>
+
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB3</span>
+                    <span class="text-[11px] text-ink">Triple-Barrier</span>
+                  </div>
+                  <div class="p-2 bg-card border border-terracotta bg-terracotta/5 flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB4</span>
+                    <span class="text-[11px] text-ink font-medium">Meta-Label</span>
+                  </div>
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB5</span>
+                    <span class="text-[11px] text-ink">Primary ML</span>
+                  </div>
+                </div>
+
+                <div class="flex justify-center text-ink-subtle text-xs py-0.5">↓</div>
+
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB6</span>
+                    <span class="text-[11px] text-ink">Purged CV</span>
+                  </div>
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-terracotta font-semibold">NB7</span>
+                    <span class="text-[11px] text-ink">CPCV / DSR</span>
+                  </div>
+                  <div class="p-2 bg-card border border-hairline flex flex-col">
+                    <span class="text-[10px] text-status-green font-semibold">NB8</span>
+                    <span class="text-[11px] text-ink">Alpaca Live</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-hairline text-[10px] font-mono text-ink-subtle flex justify-between">
+                <span>METHOD: LÓPEZ DE PRADO</span>
+                <span>STATUS: TESTING</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+      <!-- INDEX TABLE BELOW THE CARDS -->
+      <div class="bg-card border border-hairline p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
+          <span class="font-bold text-ink">[ ARCHIVE INDEX // SECONDARY EXPERIMENTS ]</span>
+          <span class="text-ink-subtle">5 ENTRIES ON RECORD</span>
+        </div>
+
+        <div class="divide-y divide-hairline font-mono text-xs">
+          
+          <div class="table-row-hover py-3.5 px-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+              <span class="text-terracotta font-semibold">IDX-01</span>
+              <span class="text-ink font-medium">LAUNDRY-SAVER</span>
+            </div>
+            <div class="text-ink-muted text-xs sm:text-right">
+              Arduino Nano + ESP8266 rain-adaptive laundry protection · Feb–Mar 2026 · Open-source schematics
+            </div>
+          </div>
+
+          <div class="table-row-hover py-3.5 px-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+              <span class="text-terracotta font-semibold">IDX-02</span>
+              <span class="text-ink font-medium">ESP32 OLED Time &amp; Icon Display</span>
+            </div>
+            <div class="text-ink-muted text-xs sm:text-right">
+              SSD1306 custom bitmapped rendering &amp; NTP synchronization engine
+            </div>
+          </div>
+
+          <div class="table-row-hover py-3.5 px-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+              <span class="text-terracotta font-semibold">IDX-03</span>
+              <span class="text-ink font-medium">15-Employee Payroll System</span>
+            </div>
+            <div class="text-ink-muted text-xs sm:text-right">
+              Six position levels, TRAIN-law withholding, SSS/PhilHealth/Pag-IBIG tax tables
+            </div>
+          </div>
+
+          <div class="table-row-hover py-3.5 px-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+              <span class="text-terracotta font-semibold">IDX-04</span>
+              <span class="text-ink font-medium">fzz2md.py</span>
+            </div>
+            <div class="text-ink-muted text-xs sm:text-right">
+              CLI converting Fritzing .fzz schematic archives to Markdown documentation tables
+            </div>
+          </div>
+
+          <div class="table-row-hover py-3.5 px-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+              <span class="text-terracotta font-semibold">IDX-05</span>
+              <span class="text-ink font-medium">Mung Bean Coconut-Husk-Ash Study</span>
+            </div>
+            <div class="text-ink-muted text-xs sm:text-right">
+              Aug 2025 · Soil amendment pH control &amp; germination rate quantitative trials
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 5. 04 / WRITING (Editorial Desk) -->
+    <section id="writing" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 04 / WRITING ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            Editorial Desk: <span class="font-serif italic font-normal text-ink-muted">policy, tech, geopolitics.</span>
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          CAMPUS OPINION ARCHIVE
+        </div>
+      </div>
+
+      <!-- Newspaper-Style Layout: Featured Piece + Column List -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Featured Editorial Piece (7 cols) -->
+        <article class="lg:col-span-7 bg-card border border-hairline p-6 sm:p-10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 mb-6 border-b border-hairline font-mono text-xs">
+              <span class="bg-terracotta/10 text-terracotta px-2 py-0.5 border border-terracotta/30">FEATURED OPINION</span>
+              <span class="text-ink-subtle">[ DATE ] · CAPAS DESK</span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-serif font-normal text-ink leading-tight mb-6">
+              Questions Behind the Chips: <span class="italic text-ink-muted">The Pax Silica Microchip Initiative in Capas</span>
+            </h3>
+
+            <div class="space-y-4 font-sans text-sm sm:text-base text-ink-muted leading-relaxed mb-8">
+              <p>
+                As central Luzon positions itself as a potential semiconductor staging ground, local development narratives frequently celebrate high-level industrial investment without addressing the local municipal infrastructure, energy grids, and water rights required to sustain microchip fabrication.
+              </p>
+              <p>
+                In this inquiry, question-driven framing meets field-level reporting: weighing the national technological sovereignty argument against rural environmental realities in Capas, Tarlac.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-hairline flex items-center justify-between font-mono text-xs">
+            <span class="text-ink-subtle">TOPIC: GEOPOLITICS &amp; INDUSTRY</span>
+            <span class="text-terracotta font-semibold">[ READ ]</span>
+          </div>
+        </article>
+
+        <!-- Column Placeholders & Capstone Paper (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Capstone Paper Item -->
+          <div class="bg-card border border-hairline p-6">
+            <div class="font-mono text-xs text-terracotta uppercase mb-2">[ IMRAD TECHNICAL RESEARCH ]</div>
+            <h4 class="font-serif text-lg font-normal text-ink leading-snug mb-3">
+              Deployable Real-Time Non-Contact Flood Monitoring System Using Computer Vision and Decentralized Multi-Path Communication Network
+            </h4>
+            <p class="font-sans text-xs text-ink-muted mb-4">
+              Formal IMRAD paper establishing the hardware design, image processing model, and resilient transmission protocols in severe weather conditions.
+            </p>
+            <div class="flex items-center justify-between font-mono text-xs pt-3 border-t border-hairline">
+              <span class="text-ink-subtle">[ DATE ] · RESEARCH</span>
+              <span class="text-terracotta font-medium">[ READ PAPER ]</span>
+            </div>
+          </div>
+
+          <!-- Editorial Columns Feed -->
+          <div class="bg-card border border-hairline p-6 divide-y divide-hairline">
+            <div class="font-mono text-xs text-ink font-semibold pb-3 mb-1">
+              OPINION COLUMNS &amp; DISPATCHES
+            </div>
+
+            <div class="py-4">
+              <div class="flex justify-between font-mono text-[11px] text-ink-subtle mb-1">
+                <span>[ DATE ]</span>
+                <span class="text-terracotta">ENVIRONMENT</span>
+              </div>
+              <h5 class="font-serif text-base text-ink font-normal mb-2">
+                Monsoon Preparedness and the Fragility of Riverbank Infrastructure
+              </h5>
+              <span class="font-mono text-xs text-ink-muted hover:text-terracotta transition-colors">[ READ ]</span>
+            </div>
+
+            <div class="py-4">
+              <div class="flex justify-between font-mono text-[11px] text-ink-subtle mb-1">
+                <span>[ DATE ]</span>
+                <span class="text-terracotta">ECONOMY</span>
+              </div>
+              <h5 class="font-serif text-base text-ink font-normal mb-2">
+                Small-Scale Logistics Under Inflationary Pressure in Central Luzon
+              </h5>
+              <span class="font-mono text-xs text-ink-muted hover:text-terracotta transition-colors">[ READ ]</span>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex justify-between font-mono text-[11px] text-ink-subtle mb-1">
+                <span>[ DATE ]</span>
+                <span class="text-terracotta">GEOPOLITICS</span>
+              </div>
+              <h5 class="font-serif text-base text-ink font-normal mb-2">
+                Regional Supply Chains and the Realities of Local Governance
+              </h5>
+              <span class="font-mono text-xs text-ink-muted hover:text-terracotta transition-colors">[ READ ]</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. 05 / LAB (Compact Mono Grid of Experiments) -->
+    <section id="lab" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 05 / LAB ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            Active workbench &amp; daily toolchains.
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          HYPRLAND · REVERSE PROXY · AUDIO
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-xs">
+        
+        <!-- Lab Item 1 -->
+        <div class="bg-card border border-hairline p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between text-ink-subtle mb-3">
+              <span>CONFIG // 01</span>
+              <span class="text-terracotta">CACHYOS</span>
+            </div>
+            <h4 class="text-sm font-bold text-ink mb-2">Hyprland &amp; CachyOS Dotfiles</h4>
+            <p class="text-ink-muted leading-relaxed font-sans text-xs">
+              Custom Wayland compositing scripts, optimized Linux kernel schedulers (sched-ext), low-latency input tuning, and minimal monochrome bar integration.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-hairline text-ink-subtle">
+            STACK: Wayland · Hyprland · BASH
+          </div>
+        </div>
+
+        <!-- Lab Item 2 -->
+        <div class="bg-card border border-hairline p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between text-ink-subtle mb-3">
+              <span>CONFIG // 02</span>
+              <span class="text-terracotta">LOCAL LLM</span>
+            </div>
+            <h4 class="text-sm font-bold text-ink mb-2">LiteLLM Proxy Routing</h4>
+            <p class="text-ink-muted leading-relaxed font-sans text-xs">
+              Unified OpenAI-compatible reverse proxy multiplexing local Ollama / LM Studio models (Qwen, DeepSeek) with cloud fallback load-balancing.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-hairline text-ink-subtle">
+            STACK: LiteLLM · Python · Ollama
+          </div>
+        </div>
+
+        <!-- Lab Item 3 -->
+        <div class="bg-card border border-hairline p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between text-ink-subtle mb-3">
+              <span>CONFIG // 03</span>
+              <span class="text-terracotta">ANDROID</span>
+            </div>
+            <h4 class="text-sm font-bold text-ink mb-2">Android CLI Modding</h4>
+            <p class="text-ink-muted leading-relaxed font-sans text-xs">
+              Termux automation pipelines, Shizuku rootless privilege escalation for background process control, and headless ADB shell debugging over Wi-Fi.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-hairline text-ink-subtle">
+            STACK: Termux · Shizuku · ADB
+          </div>
+        </div>
+
+        <!-- Lab Item 4 -->
+        <div class="bg-card border border-hairline p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between text-ink-subtle mb-3">
+              <span>CONFIG // 04</span>
+              <span class="text-terracotta">ACOUSTICS</span>
+            </div>
+            <h4 class="text-sm font-bold text-ink mb-2">Studio-Monitor Audio Routing</h4>
+            <p class="text-ink-muted leading-relaxed font-sans text-xs">
+              Balanced hardware RCA split design for studio reference monitoring, low-distortion grounding, and custom pipewire ALSA configuration.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-hairline text-ink-subtle">
+            STACK: PipeWire · Analog RCA · ALSA
+          </div>
+        </div>
+
+        <!-- Lab Item 5 -->
+        <div class="bg-card border border-hairline p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between text-ink-subtle mb-3">
+              <span>CONFIG // 05</span>
+              <span class="text-terracotta">VIRTUALIZATION</span>
+            </div>
+            <h4 class="text-sm font-bold text-ink mb-2">QEMU &amp; Docker Testbeds</h4>
+            <p class="text-ink-muted leading-relaxed font-sans text-xs">
+              Hardware-accelerated KVM virtual machines for sandboxed kernel testing, lightweight Docker micro-containers, and bridge networking experiments.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-hairline text-ink-subtle">
+            STACK: QEMU · KVM · Docker Engine
+          </div>
+        </div>
+
+        <!-- Lab Item 6 -->
+        <div class="bg-card border border-hairline p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between text-ink-subtle mb-3">
+              <span>CONFIG // 06</span>
+              <span class="text-terracotta">SELF-HOSTED</span>
+            </div>
+            <h4 class="text-sm font-bold text-ink mb-2">Tunnel Mesh &amp; Dynamic DNS</h4>
+            <p class="text-ink-muted leading-relaxed font-sans text-xs">
+              Production routing of zyrus.dpdns.org through Cloudflare secure tunnels and encrypted reverse-proxy endpoints without port-forwarding vulnerabilities.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-hairline text-ink-subtle">
+            STACK: Cloudflare Tunnels · DPDNS
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. 06 / JOURNEY + RECOGNITION -->
+    <section id="journey" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 06 / JOURNEY + RECOGNITION ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            Chronology &amp; verified ledger.
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          VERIFIED ENTRIES ONLY
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left: Vertical Hairline Timeline (6 cols) -->
+        <div class="lg:col-span-6 space-y-8">
+          <div class="font-mono text-xs font-semibold text-ink pb-2 border-b border-hairline">
+            TIMELINE OF FORMATION
+          </div>
+
+          <div class="relative border-l border-hairline pl-6 space-y-8 font-sans">
+            
+            <!-- Item 1 -->
+            <div class="relative group">
+              <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-ground border-2 border-ink group-hover:border-terracotta transition-colors"></span>
+              <div class="font-mono text-xs text-terracotta font-medium mb-1">2026–27 · PRESENT</div>
+              <h4 class="font-bold text-base text-ink">Grade 11 ABM · Dominican College of Tarlac</h4>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Specializing in Accountancy, Business, and Management. Combining quantitative commercial and economic rigor with prior hardware architecture backgrounds.
+              </p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative group">
+              <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-ground border-2 border-ink group-hover:border-terracotta transition-colors"></span>
+              <div class="font-mono text-xs text-ink-subtle mb-1">EDITORIAL TENURE</div>
+              <h4 class="font-bold text-base text-ink">Managing Editor → Opinion Editor</h4>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Campus Publication leadership. Directing editorial agendas, writing major issues-based columns, and mentoring staff writers.
+              </p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative group">
+              <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-ground border-2 border-ink group-hover:border-terracotta transition-colors"></span>
+              <div class="font-mono text-xs text-ink-subtle mb-1">JAN–MAR 2026</div>
+              <h4 class="font-bold text-base text-ink">Flood Monitoring Capstone Research</h4>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Primary engineering lead for the non-contact computer-vision flood detection prototype and multi-path broadcast network.
+              </p>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative group">
+              <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-ground border-2 border-ink group-hover:border-terracotta transition-colors"></span>
+              <div class="font-mono text-xs text-ink-subtle mb-1">COMPLETED</div>
+              <h4 class="font-bold text-base text-ink">Grade 10 STE · Capas National High School</h4>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Science, Technology, and Engineering specialized high school curriculum with intensive STEM coursework and scientific laboratory research.
+              </p>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="relative group">
+              <span class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-ground border-2 border-ink group-hover:border-terracotta transition-colors"></span>
+              <div class="font-mono text-xs text-ink-subtle mb-1">AUG 2025</div>
+              <h4 class="font-bold text-base text-ink">Mung Bean Coconut-Husk-Ash Growth Study</h4>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Controlled experimental analysis on organic agricultural amendments and nutrient absorption in legume seedlings.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Self-Study Tracks Inset -->
+          <div class="bg-card border border-hairline p-5 font-mono text-xs">
+            <span class="text-terracotta font-semibold block mb-2">[ ACTIVE SELF-STUDY TRACKS ]</span>
+            <div class="space-y-1.5 text-ink-muted">
+              <div>• Philippine Law &amp; Jurisprudence (Spaced repetition via Anki)</div>
+              <div>• Quantitative Finance &amp; Financial Accounting</div>
+              <div>• Discrete Component Electronics &amp; RF Circuitry</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: "RECOGNITION" Ledger (6 cols) -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="font-mono text-xs font-semibold text-ink pb-2 border-b border-hairline flex justify-between">
+            <span>RECOGNITION LEDGER</span>
+            <span class="text-ink-subtle">OFFICIAL HONORS</span>
+          </div>
+
+          <div class="bg-card border border-hairline divide-y divide-hairline font-mono text-xs">
+            
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <span class="px-2 py-0.5 bg-terracotta text-card text-[10px] font-bold mr-2">NATIONAL</span>
+                <span class="text-ink font-semibold">DepEd EDUKAMPYON: Gawad Parangal</span>
+              </div>
+              <span class="text-ink-subtle">[ DATE ]</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <span class="px-2 py-0.5 bg-terracotta text-card text-[10px] font-bold mr-2">NATIONAL</span>
+                <span class="text-ink font-semibold">1st Runner-Up, National Robotics Competition</span>
+              </div>
+              <span class="text-ink-subtle">[ DATE ]</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">DIVISION</span>
+                <span class="text-ink font-semibold">MSSPC: 1st Runner-Up, Collaborative Writing</span>
+                <span class="block text-[11px] text-ink-subtle ml-8">(Served as Managing Editor)</span>
+              </div>
+              <span class="text-ink-subtle">[ DATE ]</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">DIVISION</span>
+                <span class="text-ink font-semibold">MSSPC: 3rd Place, Editorial Writing</span>
+                <span class="block text-[11px] text-terracotta ml-8 font-medium">→ DSPC Qualifier (Editorial)</span>
+              </div>
+              <span class="text-ink-subtle">[ DATE ]</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">DIVISION</span>
+                <span class="text-ink font-semibold">MSSPC: 8th Place, Column Writing</span>
+              </div>
+              <span class="text-ink-subtle">[ DATE ]</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between">
+              <div>
+                <span class="px-2 py-0.5 bg-inset border border-hairline text-ink text-[10px] font-bold mr-2">REGIONAL</span>
+                <span class="text-ink">Rotary Regional Training (Participation)</span>
+              </div>
+              <span class="text-ink-subtle">[ DATE ]</span>
+            </div>
+
+          </div>
+
+          <div class="p-4 bg-inset/40 border border-hairline font-mono text-[11px] text-ink-subtle leading-normal">
+            NOTE: Acronyms preserved per authentic accreditation: MSSPC and DSPC represent scholastic journalism competitions. No unverified ranks or dates appended.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. 07 / BEYOND THE SCREEN -->
+    <section id="beyond" class="py-16 sm:py-20 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 07 / BEYOND THE SCREEN ]</span>
+          <h2 class="text-2xl sm:text-3xl font-sans font-bold tracking-tight text-ink mt-2">
+            Quiet hours &amp; pedagogical focus.
+          </h2>
+        </div>
+        <div class="mt-2 sm:mt-0 font-mono text-xs text-ink-subtle">
+          DISCIPLINE IN LEISURE
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+        
+        <div class="bg-card border border-hairline p-5">
+          <div class="text-terracotta font-semibold mb-2">[ RHYTHM SYSTEMS ]</div>
+          <h4 class="text-sm font-bold text-ink mb-2">High-BPM Precision Games</h4>
+          <p class="font-sans text-xs text-ink-muted leading-relaxed">
+            Project SEKAI, osu!, Project DIVA. Hand-eye coordination training and reaction latency exercises through 4-lane and sliding note mechanics.
+          </p>
+        </div>
+
+        <div class="bg-card border border-hairline p-5">
+          <div class="text-terracotta font-semibold mb-2">[ SONIC PALETTE ]</div>
+          <h4 class="text-sm font-bold text-ink mb-2">Selected Acoustics</h4>
+          <p class="font-sans text-xs text-ink-muted leading-relaxed">
+            J-pop, Vocaloid compositions, and alternative rock. Analyzed through reference studio monitor split routing setups.
+          </p>
+        </div>
+
+        <div class="bg-card border border-hairline p-5">
+          <div class="text-terracotta font-semibold mb-2">[ PEDAGOGY ]</div>
+          <h4 class="text-sm font-bold text-ink mb-2">Sister's Journalism Curriculum</h4>
+          <p class="font-sans text-xs text-ink-muted leading-relaxed">
+            Designed and executed a structured 44-day journalism curriculum for his younger sister, covering headline construction, editorial ethics, and English news writing.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 9. RESUME VIEW (Print-Friendly, Scannable Architectural View) -->
+    <section id="resume" class="py-20 sm:py-28 border-b border-hairline">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-12">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ CURRICULUM VITAE // RESUME ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            One-page print-ready dossier.
+          </h2>
+        </div>
+        <div class="mt-4 sm:mt-0 flex items-center space-x-3">
+          <button onclick="window.print()" class="px-4 py-2 bg-ink text-card font-mono text-xs tracking-wider uppercase font-medium hover:bg-terracotta transition-colors flex items-center gap-2">
+            <span>[ DOWNLOAD PDF / PRINT ]</span>
+            <span>↓</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Resume Container (Print Friendly Paper Aesthetic) -->
+      <div class="bg-[#FBF9F5] border border-hairline p-8 sm:p-12 shadow-sm font-sans max-w-4xl mx-auto">
+        
+        <!-- Resume Header -->
+        <div class="border-b-2 border-ink pb-6 mb-8 flex flex-col sm:flex-row sm:items-end justify-between">
+          <div>
+            <h3 class="text-3xl font-bold tracking-tight text-ink uppercase">PRINCE ZYRUS NATIVIDAD</h3>
+            <p class="font-mono text-xs text-terracotta tracking-wider uppercase mt-1">
+              Independent Systems Builder · Embedded Systems · Opinion Editor
+            </p>
+          </div>
+          <div class="mt-4 sm:mt-0 font-mono text-xs text-ink-muted text-left sm:text-right space-y-0.5">
+            <div>Tarlac, Philippines</div>
+            <div>Domain: zyrus.dpdns.org</div>
+            <div>GitHub: github.com/ZyrusOfficial</div>
+          </div>
+        </div>
+
+        <!-- Section: Education -->
+        <div class="mb-8">
+          <div class="font-mono text-xs uppercase tracking-widest text-ink font-bold border-b border-hairline pb-1 mb-4">
+            01. EDUCATION
+          </div>
+          <div class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:justify-between items-start">
+              <div>
+                <h4 class="font-bold text-sm text-ink">Dominican College of Tarlac</h4>
+                <p class="text-xs text-ink-muted">Senior High School · Accountancy, Business and Management (ABM) Track</p>
+              </div>
+              <span class="font-mono text-xs text-ink-subtle">2026–Present</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between items-start">
+              <div>
+                <h4 class="font-bold text-sm text-ink">Capas National High School</h4>
+                <p class="text-xs text-ink-muted">Junior High School · Science, Technology and Engineering (STE) Program</p>
+              </div>
+              <span class="font-mono text-xs text-ink-subtle">Completed Gr. 10</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Leadership & Editorial -->
+        <div class="mb-8">
+          <div class="font-mono text-xs uppercase tracking-widest text-ink font-bold border-b border-hairline pb-1 mb-4">
+            02. LEADERSHIP &amp; JOURNALISM
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex flex-col sm:flex-row sm:justify-between">
+                <h4 class="font-bold text-sm text-ink">Opinion Editor / Former Managing Editor · Campus Publication</h4>
+                <span class="font-mono text-xs text-ink-subtle">[ DATE ]</span>
+              </div>
+              <ul class="list-disc list-inside text-xs text-ink-muted mt-2 space-y-1">
+                <li>Authored lead editorials and analytical columns covering regional environmental and geopolitical topics.</li>
+                <li>Directed collaborative writing desk to 1st Runner-Up standing at division MSSPC.</li>
+                <li>Qualified for DSPC in Editorial Writing after placing 3rd in division competition.</li>
+                <li>Formulated and instructed a 44-day journalism training program for foundational English news reporting.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Engineering Projects -->
+        <div class="mb-8">
+          <div class="font-mono text-xs uppercase tracking-widest text-ink font-bold border-b border-hairline pb-1 mb-4">
+            03. ENGINEERING &amp; APPLIED SYSTEMS
+          </div>
+          <div class="space-y-5">
+            <div>
+              <div class="flex flex-col sm:flex-row sm:justify-between">
+                <h4 class="font-bold text-sm text-ink">Non-Contact Flood Monitoring System (Capstone Research)</h4>
+                <span class="font-mono text-xs text-ink-subtle">Jan–Mar 2026</span>
+              </div>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Designed an automated computer-vision edge node that monitors water levels without physical contact; engineered triple-redundant off-grid alert transmission over BitChat/BLE mesh, SMS, and Telegram to prevent failure during infrastructure blackouts.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-col sm:flex-row sm:justify-between">
+                <h4 class="font-bold text-sm text-ink">Hat-a-See (Assistive Wearable Sensory Hat)</h4>
+                <span class="font-mono text-xs text-ink-subtle">Completed</span>
+              </div>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Fabricated an Arduino-based tactile navigational hat for visually impaired users. Implemented sequential ultrasound sensor firing and micro-servo scanning to prevent acoustic echo overlap, translating obstacle proximity into dynamic haptic motor vibration rates.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-col sm:flex-row sm:justify-between">
+                <h4 class="font-bold text-sm text-ink">Quantitative Systematic Trading Pipeline</h4>
+                <span class="font-mono text-xs text-ink-subtle">Final Testing</span>
+              </div>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">
+                Implemented a 9-stage quantitative pipeline applying fractional differentiation, triple-barrier labeling, and purged combinatorial cross-validation with micro-capital Alpaca API integration.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Verified Honors -->
+        <div class="mb-8">
+          <div class="font-mono text-xs uppercase tracking-widest text-ink font-bold border-b border-hairline pb-1 mb-4">
+            04. VERIFIED RECOGNITION
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-ink-muted font-mono">
+            <div>• DepEd EDUKAMPYON: Gawad Parangal [NATIONAL]</div>
+            <div>• 1st Runner-Up, National Robotics Competition [NATIONAL]</div>
+            <div>• MSSPC: 1st Runner-Up, Collaborative Writing</div>
+            <div>• MSSPC: 3rd Place, Editorial Writing (DSPC Qualifier)</div>
+            <div>• MSSPC: 8th Place, Column Writing</div>
+            <div>• Rotary Regional Youth Leadership Training</div>
+          </div>
+        </div>
+
+        <!-- Section: Technical Stack -->
+        <div>
+          <div class="font-mono text-xs uppercase tracking-widest text-ink font-bold border-b border-hairline pb-1 mb-4">
+            05. TECHNICAL &amp; TOOLCHAIN AUDIT
+          </div>
+          <div class="font-mono text-xs text-ink-muted space-y-1.5">
+            <div><strong class="text-ink">Hardware:</strong> ESP32, ESP32-CAM, Arduino Uno/Nano, ESP8266, Raspberry Pi, LoRa, Ultrasonic Sensors, Circuit Repair.</div>
+            <div><strong class="text-ink">Software / AI:</strong> Python, Arduino C++, Bash; Ollama, LM Studio, LiteLLM, SiliconFlow, OpenClaw; Qwen, DeepSeek, Gemma.</div>
+            <div><strong class="text-ink">Infrastructure:</strong> Linux (Arch, Debian, CachyOS), Hyprland, Docker, QEMU, Cloudflare Tunnels, GitHub.</div>
+            <div><strong class="text-ink">Editorial / Creative:</strong> Editorial Journalism, IMRAD Research Writing, DaVinci Resolve, Figma, OBS Studio.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. CONTACT: "TRANSMISSION CONSOLE" -->
+    <section id="contact" class="py-20 sm:py-28">
+      
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 08 / CONTACT ]</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
+            Transmission Console.
+          </h2>
+        </div>
+        <div class="mt-3 sm:mt-0 font-mono text-xs text-ink-subtle">
+          ENCRYPTED COMMS PROTOCOL
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left: Form Styled as a Secure Comms Channel (7 cols) -->
+        <div class="lg:col-span-7 bg-card border border-hairline p-6 sm:p-10 shadow-sm">
+          <div class="flex items-center justify-between pb-3 mb-6 border-b border-hairline font-mono text-xs">
+            <span class="text-ink font-bold">SECURE CHANNEL // STDIN</span>
+            <span class="text-status-green">PORT: OPEN</span>
+          </div>
+
+          <form  class="space-y-5 font-mono text-xs">
+            <div>
+              <label class="block text-ink-subtle uppercase mb-1">OPERATOR // NAME</label>
+              <input type="text" required placeholder="Dr. / Engr. / Editor / Reader" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
+            </div>
+
+            <div>
+              <label class="block text-ink-subtle uppercase mb-1">RETURN ROUTE // EMAIL</label>
+              <input type="email" required placeholder="contact@institution.org" class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
+            </div>
+
+            <div>
+              <label class="block text-ink-subtle uppercase mb-1">SUBJECT // CLASSIFICATION</label>
+              <select class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta">
+                <option>Capstone Research &amp; Prototype Funding</option>
+                <option>Editorial / Guest Writing Inquiry</option>
+                <option>Academic &amp; Scholarship Collaboration</option>
+                <option>Hardware / Embedded Systems Review</option>
+                <option>General Comms</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-ink-subtle uppercase mb-1">TRANSMISSION PAYLOAD // MESSAGE</label>
+              <textarea rows="4" required placeholder="State your inquiry, hardware context, or research proposal..." class="w-full bg-ground border border-hairline px-3.5 py-2.5 text-ink focus:outline-none focus:border-terracotta"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit" class="w-full py-3.5 bg-terracotta text-card font-mono text-xs tracking-wider uppercase font-semibold hover:bg-terracotta/90 transition-colors flex items-center justify-center gap-2">
+                <span>[ TRANSMIT PACKET ]</span>
+                <span>→</span>
+              </button>
+            </div>
+            
+            <div id="transmit-status" class="hidden text-center text-status-green font-mono text-xs pt-2">
+              ✓ TRANSMISSION BUFFERED: ACKNOWLEDGED RECEIPT
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Endpoints & Flood Support Callout (5 cols) -->
+        <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
+          
+          <!-- Funding Callout Card -->
+          <div class="bg-card border-2 border-terracotta p-6 sm:p-7 relative">
+            <span class="font-mono text-xs text-terracotta uppercase font-bold block mb-2">[ RESEARCH NOTICE ]</span>
+            <h4 class="font-sans text-xl font-bold text-ink mb-3">Seeking Prototype Support</h4>
+            <p class="font-sans text-xs sm:text-sm text-ink-muted leading-relaxed mb-4">
+              Actively seeking academic mentorship, research grants, or scholarship opportunities to scale the Non-Contact Flood Monitoring prototype into field deployment trials across flood-prone municipalities in Tarlac.
+            </p>
+            <div class="font-mono text-xs text-ink-subtle">
+              LOCATION: CAPAS / TARLAC · PH
+            </div>
+          </div>
+
+          <!-- Direct Links -->
+          <div class="bg-card border border-hairline p-6 font-mono text-xs space-y-4">
+            <div class="text-ink font-semibold pb-2 border-b border-hairline">
+              DIRECT REACHABILITY // ENDPOINTS
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-ink-subtle">EMAIL:</span>
+              <span class="text-ink">[ EMAIL ]</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-ink-subtle">GITHUB:</span>
+              <a href="https://github.com/ZyrusOfficial" target="_blank" class="text-terracotta hover:underline">github.com/ZyrusOfficial ↗</a>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-ink-subtle">LINKEDIN:</span>
+              <span class="text-ink">[ LINKEDIN ]</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-ink-subtle">DOMAIN:</span>
+              <span class="text-ink font-bold">zyrus.dpdns.org</span>
+            </div>
+          </div>
+
+          <!-- Colophon Card -->
+          <div class="p-4 bg-inset border border-hairline font-mono text-[11px] text-ink-subtle space-y-1">
+            <div>COLOPHON // DESIGN TOKENS</div>
+            <div>PALETTE: #ECEAE4 Ground · #F5F3EC Cards · #9A5B32 Terracotta</div>
+            <div>FONTS: Inter Display · Newsreader Serif · JetBrains Mono</div>
+            <div>GRID: 12-Column Swiss · 1px Hairline Rules</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full border-t border-hairline bg-ground py-8 px-4 sm:px-6 font-mono text-xs text-ink-subtle">
+    <div class="max-w-[1240px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 PRINCE ZYRUS NATIVIDAD · TARLAC, PH
+      </div>
+      <div class="flex items-center space-x-6">
+        <span>ZYRUS // SYSTEMS ARCHITECTURE</span>
+        <span>zyrus.dpdns.org</span>
+        <a href="#hero" class="text-terracotta hover:underline">[ TOP ↑ ]</a>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    background-color: theme('colors.terracotta');
+    color: theme('colors.card');
+  }
+
+  body {
+    background-color: theme('colors.ground');
+    color: theme('colors.ink');
+    font-family: theme('fontFamily.sans');
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Cursor (Desktop) */
+@media (min-width: 1024px) {
+  .custom-cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: theme('colors.terracotta');
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+  }
+  .custom-cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(154, 91, 50, 0.45);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  }
+  body.hovering .custom-cursor-ring {
+    width: 48px;
+    height: 48px;
+    border-color: theme('colors.terracotta');
+    background: rgba(154, 91, 50, 0.06);
+  }
+}
+
+/* Animated dashed wires */
+@keyframes flowDashes {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.flow-wire {
+  stroke-dasharray: 4, 4;
+  animation: flowDashes 1.2s linear infinite;
+}
+
+/* Blinking mono cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-start infinite;
+}
+
+/* Hairline Drawing Animation */
+@keyframes drawRule {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.hairline-draw {
+  transform-origin: left;
+  animation: drawRule 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Spec Sheet Row Hover */
+.table-row-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+}
+.table-row-hover:hover {
+  transform: translateX(6px);
+  background-color: theme('colors.card');
+  border-left: 2px solid theme('colors.terracotta') !important;
+}
+
+/* Bento Card Hover */
+.bento-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease;
+}
+.bento-card:hover {
+  transform: translateY(-3px);
+  border-color: theme('colors.hairline-hover');
+  box-shadow: 0 8px 24px -12px rgba(28, 27, 26, 0.08);
+}
+
+/* Print View specific styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-page {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
