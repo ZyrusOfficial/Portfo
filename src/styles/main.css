@@ -176,3 +176,47 @@
     display: none !important;
   }
 }
+
+/* ===========================
+   SIGNATURE EFFECTS
+   =========================== */
+
+/* Ensure section content sits above the ghost numeral */
+section[id] > *:not(.section-ghost-numeral) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tilt card — base hardware accelerated layer */
+.tilt-card {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Section scanner bar — positioned by JS, this is the fallback */
+.section-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: theme('colors.terracotta');
+  width: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Marquee track smoothing */
+#marquee-strip {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Reduced motion: disable ghost numeral parallax */
+@media (prefers-reduced-motion: reduce) {
+  .section-ghost-numeral {
+    transform: none !important;
+  }
+  .tilt-card {
+    transform: none !important;
+  }
+}

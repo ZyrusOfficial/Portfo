@@ -36,8 +36,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   
   <!-- Styles & Scripts -->
-  <script type="module" crossorigin src="/assets/index-B4rGLoGE.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B3XphD5u.css">
+  <script type="module" crossorigin src="/assets/index-DZ1WaaUB.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CKGYQUC3.css">
 </head>
 
 <body class="selection:bg-terracotta selection:text-white antialiased">
@@ -262,13 +262,16 @@
       </div>
     </section>
 
+    <!-- MARQUEE STRIP (between Hero and Story) -->
+    <div id="marquee-placeholder"></div>
+
     <!-- 2. 01 / STORY (About Section + At a glance stats) -->
     <section id="story" class="py-20 sm:py-28 border-b border-hairline">
       
       <!-- Section Header -->
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 01 / STORY ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 01 / STORY ]">[ 01 / STORY ]</span></span>
           <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
             From circuits to columns: <span class="font-serif italic font-normal text-ink-muted">a dual practice.</span>
           </h2>
@@ -430,7 +433,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 02 / CAPABILITIES ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 02 / CAPABILITIES ]">[ 02 / CAPABILITIES ]</span></span>
           <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
             Technical taxonomy &amp; architecture layers.
           </h2>
@@ -444,7 +447,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         
         <!-- 01 HARDWARE & EMBEDDED -->
-        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+        <div class="bento-card tilt-card bg-card border border-hairline p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
               <span class="text-ink font-semibold">01 / HARDWARE</span>
@@ -491,7 +494,7 @@
         </div>
 
         <!-- 02 SOFTWARE & AI -->
-        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+        <div class="bento-card tilt-card bg-card border border-hairline p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
               <span class="text-ink font-semibold">02 / SOFTWARE</span>
@@ -537,7 +540,7 @@
         </div>
 
         <!-- 03 SYSTEMS & INFRASTRUCTURE -->
-        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+        <div class="bento-card tilt-card bg-card border border-hairline p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
               <span class="text-ink font-semibold">03 / SYSTEMS</span>
@@ -583,7 +586,7 @@
         </div>
 
         <!-- 04 COMMUNICATION & CREATIVE -->
-        <div class="bento-card bg-card border border-hairline p-6 flex flex-col justify-between">
+        <div class="bento-card tilt-card bg-card border border-hairline p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 border-b border-hairline mb-4 font-mono text-xs">
               <span class="text-ink font-semibold">04 / CREATIVE</span>
@@ -636,7 +639,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 03 / WORK ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 03 / WORK ]">[ 03 / WORK ]</span></span>
           <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
             Selected engineering dossiers &amp; schematics.
           </h2>
@@ -650,7 +653,7 @@
       <div class="space-y-12 mb-16">
         
         <!-- CASE STUDY A: Non-Contact Flood Monitoring System -->
-        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative">
+        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative tilt-card">
           <div class="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
             <div class="flex items-center space-x-3">
               <span class="bg-inset px-2.5 py-1 text-ink font-medium border border-hairline">CAPSTONE RESEARCH</span>
@@ -669,19 +672,19 @@
               </h3>
               
               <!-- Problem Inset Block -->
-              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted">
+              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted" data-story-problem>
                 <strong class="font-mono text-xs text-terracotta block uppercase tracking-wider mb-1">[ PROBLEM ]</strong>
                 Flood alerts fail when internet and power fail. Physical water sensors suffer corrosion and debris obstruction during typhoon surge conditions.
               </div>
 
               <!-- Action -->
-              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed" data-story-action>
                 <strong class="font-mono text-xs text-ink block uppercase tracking-wider mb-1">[ ACTION ]</strong>
                 Engineered a computer-vision water-level measurement pipeline with resilient multi-path emergency alerts over BitChat/Bluetooth mesh, SMS, and Telegram fallback channels.
               </div>
 
               <!-- Result -->
-              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed" data-story-result>
                 <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
                 Working physical prototype; rigorously tested water-level accuracy and alert delivery across simulated offline states; seeking funding or scholarship support for the flood-monitoring prototype.
               </div>
@@ -748,7 +751,7 @@
         </article>
 
         <!-- CASE STUDY B: Hat-a-See -->
-        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative">
+        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative tilt-card">
           <div class="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
             <div class="flex items-center space-x-3">
               <span class="bg-inset px-2.5 py-1 text-ink font-medium border border-hairline">ASSISTIVE HARDWARE</span>
@@ -766,17 +769,17 @@
                 Hat-a-See: Wearable Assistive Hat
               </h3>
               
-              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted">
+              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted" data-story-problem>
                 <strong class="font-mono text-xs text-terracotta block uppercase tracking-wider mb-1">[ PROBLEM ]</strong>
                 Visually impaired individuals face head-level obstacles that traditional canes cannot detect; existing sensor hats trigger echo crosstalk and disorienting feedback.
               </div>
 
-              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed" data-story-action>
                 <strong class="font-mono text-xs text-ink block uppercase tracking-wider mb-1">[ ACTION ]</strong>
                 Integrated Arduino UNO, HC-SR04 ultrasonic sensors, vibration motors, and a micro servo. Programmed step-scan servo logic and sequential sensor firing to completely eliminate acoustic crosstalk, paired with dynamic distance-based vibration pulse rates.
               </div>
 
-              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed" data-story-result>
                 <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
                 Full hardware and firmware lifecycle completed with wiring plans, user guide, and presentation.
               </div>
@@ -841,7 +844,7 @@
         </article>
 
         <!-- CASE STUDY C: Quantitative Trading Pipeline -->
-        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative">
+        <article class="bg-card border border-hairline p-6 sm:p-10 shadow-sm relative tilt-card">
           <div class="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-hairline font-mono text-xs">
             <div class="flex items-center space-x-3">
               <span class="bg-inset px-2.5 py-1 text-ink font-medium border border-hairline">QUANT PIPELINE</span>
@@ -859,17 +862,17 @@
                 Quantitative Trading Pipeline
               </h3>
               
-              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted">
+              <div class="p-4 bg-inset border-l-2 border-terracotta text-sm font-sans text-ink-muted" data-story-problem>
                 <strong class="font-mono text-xs text-terracotta block uppercase tracking-wider mb-1">[ PROBLEM ]</strong>
                 Standard machine learning models overfit on non-stationary market time-series, yielding spurious backtests without robust statistical deflators or combinatorial cross-validation.
               </div>
 
-              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed" data-story-action>
                 <strong class="font-mono text-xs text-ink block uppercase tracking-wider mb-1">[ ACTION ]</strong>
                 Constructed a nine-notebook pipeline following Marcos López de Prado methodology: fractional differentiation, triple-barrier labeling, meta-labeling, purged cross-validation, CPCV, Deflated Sharpe Ratio; multi-agent design with a live micro-capital track on Alpaca.
               </div>
 
-              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed">
+              <div class="text-sm sm:text-base font-sans text-ink-muted leading-relaxed" data-story-result>
                 <strong class="font-mono text-xs text-status-green block uppercase tracking-wider mb-1">[ RESULT ]</strong>
                 Final testing phase. Complete methodology implemented without heuristic curve-fitting. (Note: no performance claims or ROI claims presented, in compliance with scientific rigor).
               </div>
@@ -1023,7 +1026,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 04 / WRITING ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 04 / WRITING ]">[ 04 / WRITING ]</span></span>
           <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
             Editorial Desk: <span class="font-serif italic font-normal text-ink-muted">policy, tech, geopolitics.</span>
           </h2>
@@ -1101,7 +1104,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 05 / LAB ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 05 / LAB ]">[ 05 / LAB ]</span></span>
           <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
             Active workbench &amp; daily toolchains.
           </h2>
@@ -1373,7 +1376,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 sm:mb-10">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 07 / BEYOND THE SCREEN ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 07 / BEYOND THE SCREEN ]">[ 07 / BEYOND THE SCREEN ]</span></span>
           <h2 class="text-2xl sm:text-3xl font-sans font-bold tracking-tight text-ink mt-2">
             Quiet hours &amp; pedagogical focus.
           </h2>
@@ -1579,7 +1582,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-terracotta">[ 08 / CONTACT ]</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-terracotta"><span data-decode aria-label="[ 08 / CONTACT ]">[ 08 / CONTACT ]</span></span>
           <h2 class="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-ink mt-2">
             Transmission Console.
           </h2>
@@ -1714,6 +1717,6 @@
     </div>
   </footer>
 
-
+
   </body>
 </html>

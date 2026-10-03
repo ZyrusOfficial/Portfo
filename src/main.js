@@ -3,6 +3,16 @@ import { hydrateContent } from './features/hydrate.js';
 import { initMotion } from './motion/animations.js';
 import { initDotGrid } from './features/dotgrid.js';
 import { isMotionEnabled, setMotionEnabled } from './motion/config.js';
+import {
+  initGhostNumerals,
+  initTextDecode,
+  initMarquee,
+  initPinnedStory,
+  initTilt,
+  initClickRipple,
+  initSectionScanner,
+  initMobileMenu,
+} from './features/signature-effects.js';
 
 import printJS from 'print-js';
 
@@ -14,6 +24,16 @@ initMotion();
 
 // Initialize Interactive Dot Grid
 initDotGrid();
+
+// Initialize Signature Effects (Step 3)
+initGhostNumerals();
+initTextDecode();
+initMarquee();
+initPinnedStory();
+initTilt();
+initClickRipple();
+initSectionScanner();
+initMobileMenu();
 
 // Motion Toggle Logic
 window.toggleMotion = function() {
