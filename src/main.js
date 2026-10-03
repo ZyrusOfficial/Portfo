@@ -2,11 +2,20 @@ import './styles/main.css';
 import { hydrateContent } from './features/hydrate.js';
 import { initMotion } from './motion/animations.js';
 
+import printJS from 'print-js';
+
 // Hydrate dynamic data
 hydrateContent();
 
 // Initialize GSAP & Lenis
 initMotion();
+
+// Expose print functionality for the PDF dossier
+window.printDossier = function(e) {
+  if (e) e.preventDefault();
+  printJS('/assets/Prince-Zyrus-Natividad-Resume.pdf');
+};
+
 
 // Live Telemetry Clock (PHT)
 function updateClock() {
