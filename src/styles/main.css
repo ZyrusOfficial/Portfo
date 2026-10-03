@@ -112,4 +112,67 @@
     padding: 0 !important;
     margin: 0 !important;
   }
+  /* Resume portrait: keep, small, grayscale off, no extra page */
+  .resume-portrait img {
+    width: 60px !important;
+    height: 60px !important;
+    border: 1px solid #D8D3C8 !important;
+    filter: none !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Hide portrait motion elements that could cause layout shift in print */
+  #portrait-placeholder { display: none !important; }
+}
+
+/* ===========================
+   PORTRAIT MOTION SYSTEM
+   =========================== */
+
+/* Initial state: frame is invisible until draw animation fires */
+.portrait-frame {
+  /* border opacity controlled by JS adding .frame-drawn class */
+}
+
+/* Clip-path wipe initial state — JS will override for users with motion enabled */
+/* Default (no-JS / reduced-motion): image is simply visible */
+#portrait-clip {
+  /* fallback: visible */
+}
+
+/* Image inside wipe: initial clip-path set by JS */
+#portrait-parallax picture img {
+  /* Base — overridden by JS animation */
+}
+
+/* Hover label — transition handled by Tailwind group-hover utilities in HTML */
+/* Extra specificity guard */
+.portrait-hover-label {
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reduced motion: disable all portrait animations, show image immediately */
+@media (prefers-reduced-motion: reduce) {
+  #portrait-clip {
+    clip-path: none !important;
+  }
+  #portrait-parallax {
+    transform: none !important;
+  }
+  #portrait-img {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  #portrait-placeholder {
+    opacity: 0 !important;
+  }
+  .portrait-frame {
+    border-color: #D8D3C8 !important;
+    opacity: 1 !important;
+  }
+  .portrait-hover-label {
+    display: none !important;
+  }
 }
