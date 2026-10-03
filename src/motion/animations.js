@@ -1,22 +1,19 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { getMotionConfig, isMotionEnabled } from './config.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initMotion() {
+  const motionEnabled = isMotionEnabled();
+  
   // 1. Initialize Lenis Smooth Scroll
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
     smoothWheel: true,
   });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
 
   // Synchronize GSAP ScrollTrigger with Lenis
   lenis.on('scroll', ScrollTrigger.update);
@@ -25,32 +22,71 @@ export function initMotion() {
   });
   gsap.ticker.lagSmoothing(0);
 
+  if (!motionEnabled) {
+    // Basic fallback for reduced motion: initialize portrait loading logic only
+    initPortraitMotion(false, null);
+    return;
+  }
+
+  const config = getMotionConfig();
+  const easeOutExpo = 'expo.out';
+
   // 2. Hero Reveal Animation
-  const heroEls = document.querySelectorAll('[data-animate="hero"]');
-  if (heroEls.length) {
-    gsap.fromTo(heroEls, 
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.1 }
+  const heroHeading = document.querySelector('h1[data-animate="hero"]');
+  if (heroHeading) {
+    // Manually split hero heading into words for animation
+    const content = heroHeading.innerHTML;
+    // Basic split (not robust for all HTML, but works for the known structure: "Code. Circuits. <br /> <span>Columns.</span>")
+    heroHeading.innerHTML = `
+      <span class="inline-block hero-word">Code.</span> 
+      <span class="inline-block hero-word">Circuits.</span> <br />
+      <span class="inline-block hero-word text-terracotta font-serif font-normal italic relative">
+        Columns.
+        <span class="hero-underline absolute bottom-0 left-0 w-full h-[3px] bg-terracotta" style="transform-origin: left;"></span>
+      </span>
+    `;
+
+    const words = heroHeading.querySelectorAll('.hero-word');
+    gsap.fromTo(words, 
+      { yPercent: 110, rotation: 7, scale: 0.9, opacity: 0 },
+      { yPercent: 0, rotation: 0, scale: 1, opacity: 1, duration: config.durations.base, stagger: config.stagger, ease: easeOutExpo, delay: 0.2 }
+    );
+    
+    const underline = heroHeading.querySelector('.hero-underline');
+    if (underline) {
+      gsap.fromTo(underline, 
+        { scaleX: 0 }, 
+        { scaleX: 1, duration: config.durations.base, ease: easeOutExpo, delay: 0.2 + (words.length * config.stagger) }
+      );
+    }
+  }
+
+  const otherHeroEls = document.querySelectorAll('[data-animate="hero"]:not(h1)');
+  if (otherHeroEls.length) {
+    gsap.fromTo(otherHeroEls, 
+      { y: config.heroOffset, scale: 0.96, opacity: 0 },
+      { y: 0, scale: 1, opacity: 1, duration: config.durations.base, stagger: config.stagger, ease: easeOutExpo, delay: 0.3 }
     );
   }
 
   // 3. Scroll Reveal for sections/items
   const sections = document.querySelectorAll('section:not(#hero)');
   sections.forEach(el => {
-    gsap.fromTo(el,
-      { y: 40, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: 1, 
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none' // Play once
-        }
+    gsap.set(el, { y: config.revealOffset, scale: 0.96, opacity: 0 });
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(el, {
+          y: 0, 
+          scale: 1,
+          opacity: 1, 
+          duration: config.durations.base, 
+          ease: easeOutExpo
+        });
       }
-    );
+    });
   });
 
   // 4. Staggered reveals for lists
@@ -58,36 +94,30 @@ export function initMotion() {
   staggerContainers.forEach(container => {
     const items = container.querySelectorAll('[data-animate="stagger-item"]');
     if (items.length) {
-      gsap.fromTo(items,
-        { y: 30, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: container,
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+      gsap.set(items, { y: config.revealOffset, scale: 0.96, opacity: 0 });
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(items, {
+            y: 0, 
+            scale: 1,
+            opacity: 1, 
+            duration: config.durations.fast, 
+            stagger: config.stagger,
+            ease: easeOutExpo
+          });
         }
-      );
+      });
     }
   });
 
   // 5. Portrait Motion System
-  initPortraitMotion();
+  initPortraitMotion(true, config);
 }
 
-/**
- * Portrait animation system.
- * - Respects prefers-reduced-motion: no wipe, no parallax, no scale.
- * - Mobile (<1024px): fade-in only.
- * - Desktop: clip-path wipe + scale reveal + parallax + hover label.
- * - LCP guard: image is never hidden for more than 2.5s.
- */
-function initPortraitMotion() {
+function initPortraitMotion(motionEnabled, config) {
   const frame = document.getElementById('portrait-frame');
   const clip = document.getElementById('portrait-clip');
   const img = document.getElementById('portrait-img');
@@ -96,15 +126,11 @@ function initPortraitMotion() {
 
   if (!frame || !clip || !img) return;
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Cross-fade: show sharp image when loaded, hide placeholder
   function revealSharpImage() {
     if (placeholder) placeholder.style.opacity = '0';
     img.style.opacity = '1';
   }
 
-  // LCP guard: force reveal within 2.5s regardless of load state
   const lcpTimeout = setTimeout(revealSharpImage, 2500);
 
   if (img.complete) {
@@ -117,28 +143,17 @@ function initPortraitMotion() {
     }, { once: true });
   }
 
-  // Reduced motion: just show everything, no animation
-  if (prefersReducedMotion) {
+  if (!motionEnabled) {
     img.style.opacity = '1';
     if (placeholder) placeholder.style.opacity = '0';
     return;
   }
 
-  // Mobile (< 1024px): fade-in only when section enters viewport
   const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-  if (!isDesktop) {
-    // Simple fade — image is already opacity:0 in HTML, crossfade handles it
-    // Just ensure placeholder fades out when img is loaded
-    return;
-  }
+  if (!isDesktop) return;
 
-  // === DESKTOP FULL ANIMATION ===
+  const easeOutExpo = 'expo.out';
 
-  // ease-out-expo custom ease
-  const easeOutExpo = 'power4.out';
-
-  // Step 1: Frame border draw — immediately on trigger
-  // The frame starts with hairline border (already visible), we animate border-color opacity
   gsap.fromTo(frame,
     { borderColor: 'rgba(216, 211, 200, 0)' },
     {
@@ -148,13 +163,11 @@ function initPortraitMotion() {
       scrollTrigger: {
         trigger: frame,
         start: 'top 80%',
-        toggleActions: 'play none none none',
+        once: true
       }
     }
   );
 
-  // Step 2: Clip-path wipe from bottom to top + scale reveal
-  // Initial state: hidden (clip-path covers full image from bottom)
   gsap.set(clip, { clipPath: 'inset(100% 0 0 0)' });
   gsap.set(img, { scale: 1.06, opacity: 0 });
 
@@ -162,28 +175,15 @@ function initPortraitMotion() {
     scrollTrigger: {
       trigger: frame,
       start: 'top 78%',
-      toggleActions: 'play none none none',
+      once: true
     }
   })
-  // Reveal the img opacity first (so crossfade works during wipe)
   .to(img, { opacity: 1, duration: 0.1 }, 0)
-  // Wipe clip-path from bottom to top
-  .to(clip, {
-    clipPath: 'inset(0% 0 0 0)',
-    duration: 0.9,
-    ease: easeOutExpo,
-  }, 0.25) // slight delay after frame draw starts
-  // Scale from 1.06 to 1.0 simultaneously
-  .to(img, {
-    scale: 1,
-    duration: 0.9,
-    ease: easeOutExpo,
-  }, 0.25);
+  .to(clip, { clipPath: 'inset(0% 0 0 0)', duration: config.durations.base, ease: easeOutExpo }, 0.25)
+  .to(img, { scale: 1, duration: config.durations.base, ease: easeOutExpo }, 0.25);
 
-  // Step 3: Parallax — image moves slightly inside the frame while scrolling
-  // max 24px displacement, desktop only
   gsap.to(parallax, {
-    y: -24,
+    y: -config.parallax.content,
     ease: 'none',
     scrollTrigger: {
       trigger: frame,

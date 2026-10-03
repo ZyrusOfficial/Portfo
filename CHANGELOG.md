@@ -92,3 +92,19 @@
 ### Phase 1: Styles & Dead Code Removal (6d3e299)
 - Tailwind config with design tokens
 - main.css extraction
+
+## [Unreleased] - 2026-10-03 (Motion v2 Upgrade)
+### Added
+- **Interactive Dot Grid**: Implemented an animated `<canvas>` background (`src/features/dotgrid.js`) featuring pointer reaction, spring physics push, touch support, click ripples, and scroll wave displacement.
+- **Central Motion Config**: Created `src/motion/config.js` with `calm`, `expressive`, and `bold` intensity presets.
+- **Motion Toggle**: Added a `[ MOTION: ON/OFF ]` toggle button in the masthead that persists state via `localStorage` and falls back to system `prefers-reduced-motion`.
+- **Hero Headline Animation**: Word-by-word rising reveal with rotation and scale.
+- **Audit Report**: Generated `audit-report.md` detailing fixes for previous animation issues.
+
+### Changed
+- Replaced the redundant Lenis `requestAnimationFrame` loop in `animations.js` and resolved double-ticker jitter.
+- Updated ScrollTrigger reveals to use `once: true` properly, preventing elements from jumping or hiding if already in view.
+- Adjusted sections (`#hero`, `#contact`, `#lab`) to use `bg-transparent` to allow the dot grid to be visible.
+
+### Removed
+- Unused GSAP `toggleActions` that caused buggy interactions on load.

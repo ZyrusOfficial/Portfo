@@ -1,0 +1,29 @@
+{
+  "name": "Prince Zyrus Natividad | Systems Architecture",
+  "short_name": "ZYRUS",
+  "description": "I build resilient hardware and AI systems, then write about the world they operate in.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ECEAE4",
+  "theme_color": "#ECEAE4",
+  "icons": [
+    {
+      "src": "/img/portrait/portrait-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/portrait/portrait-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/portrait/portrait-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

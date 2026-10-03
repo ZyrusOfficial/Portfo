@@ -59,7 +59,7 @@
         <span class="hidden md:inline text-ink-subtle">DOMAIN: <strong class="text-ink">zyrus.dpdns.org</strong></span>
       </div>
       <div class="flex items-center space-x-4">
-        <span class="hidden sm:inline">TIME: <span id="telemetry-time">00:00:00 UTC</span></span>
+        <button onclick="toggleMotion()" class="hover:text-terracotta transition-colors">[ MOTION: <span id="motion-state">ON</span> ]</button> <span class="hidden sm:inline">TIME: <span id="telemetry-time">00:00:00 UTC</span></span>
 
       </div>
     </div>
@@ -119,7 +119,7 @@
   <main class="max-w-[1240px] mx-auto px-4 sm:px-6">
 
     <!-- 1. HERO SECTION (65/35 Split) -->
-    <section id="hero" class="pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-hairline">
+    <section id="hero" class="bg-transparent pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-hairline">
       
       <!-- Top Folio Bar -->
       <div class="flex items-center justify-between pb-6 mb-8 border-b border-hairline text-xs font-mono text-ink-subtle tracking-wider uppercase">
@@ -1715,5 +1715,10 @@
   </footer>
 
 
-</body>
+<script type="module">
+    import { isMotionEnabled } from "/src/motion/config.js";
+    const el = document.getElementById("motion-state");
+    if(el) el.innerText = isMotionEnabled() ? "ON" : "OFF";
+  </script>
+  </body>
 </html>

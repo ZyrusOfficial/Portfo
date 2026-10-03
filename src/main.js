@@ -1,6 +1,8 @@
 import './styles/main.css';
 import { hydrateContent } from './features/hydrate.js';
 import { initMotion } from './motion/animations.js';
+import { initDotGrid } from './features/dotgrid.js';
+import { isMotionEnabled, setMotionEnabled } from './motion/config.js';
 
 import printJS from 'print-js';
 
@@ -9,6 +11,14 @@ hydrateContent();
 
 // Initialize GSAP & Lenis
 initMotion();
+
+// Initialize Interactive Dot Grid
+initDotGrid();
+
+// Motion Toggle Logic
+window.toggleMotion = function() {
+  setMotionEnabled(!isMotionEnabled());
+};
 
 // Expose print functionality for the PDF dossier
 window.printDossier = function(e) {
