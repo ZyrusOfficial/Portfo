@@ -37,7 +37,9 @@ export function initGhostNumerals() {
 
     // Make section position:relative if not already
     section.style.position = 'relative';
-    section.style.overflow = 'hidden';
+    // Use overflow-x:clip (not overflow:hidden) so GSAP vertical reveals
+    // (y transforms) are never clipped. Only horizontal overflow is masked.
+    section.style.overflowX = 'clip';
 
     const ghost = document.createElement('span');
     ghost.className = 'section-ghost-numeral';
@@ -322,41 +324,43 @@ export function initTilt() {
 export function initClickRipple() {
   if (!isMotionEnabled()) return;
 
-  document.querySelectorAll('button, a.btn-ripple, .ripple-target').forEach(btn => {
-    btn.style.position = 'relative';
-    btn.style.overflow = 'hidden';
+  // FIX: Append ripples to body at fixed screen coordinates.
+  // This is NEVER clipped by overflow:hidden on buttons/cards.
+  function spawnRipple(clientX, clientY) {
+    const ripple = document.createElement('span');
+    Object.assign(ripple.style, {
+      position: 'fixed',
+      left: clientX + 'px',
+      top:  clientY + 'px',
+      width: '0px',
+      height: '0px',
+      borderRadius: '50%',
+      border: '2px solid #9A5B32',
+      transform: 'translate(-50%, -50%)',
+      pointerEvents: 'none',
+      zIndex: '9000',       // above all content, below cursor
+      opacity: '1',
+    });
+    document.body.appendChild(ripple);
 
-    btn.addEventListener('click', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    gsap.to(ripple, {
+      width: 100,
+      height: 100,
+      opacity: 0,
+      duration: 0.55,
+      ease: 'power2.out',
+      onComplete: () => ripple.remove(),
+    });
+  }
 
-      const ripple = document.createElement('span');
-      Object.assign(ripple.style, {
-        position: 'absolute',
-        left: x + 'px',
-        top: y + 'px',
-        width: '0',
-        height: '0',
-        borderRadius: '50%',
-        border: '2px solid #9A5B32',
-        transform: 'translate(-50%, -50%)',
-        pointerEvents: 'none',
-        zIndex: '10',
-      });
-      btn.appendChild(ripple);
-
-      gsap.to(ripple, {
-        width: 120,
-        height: 120,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-        onComplete: () => ripple.remove()
-      });
+  // Attach to interactive elements — but emit from the CLICK coordinate, not element-relative
+  document.querySelectorAll('button, a[href], .ripple-target').forEach(btn => {
+    btn.addEventListener('click', e => {
+      spawnRipple(e.clientX, e.clientY);
     });
   });
 }
+
 
 // ─────────────────────────────────────────────
 // 7. SECTION SCANNER — terracotta hairline sweep

@@ -13,6 +13,10 @@
     color: theme('colors.ink');
     font-family: theme('fontFamily.sans');
     overflow-x: hidden;
+    /* Establish a stacking context so z-index:-1 canvas stays within the page,
+       never leaking onto browser chrome or adjacent windows */
+    isolation: isolate;
+    position: relative;
   }
 }
 

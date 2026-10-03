@@ -69,20 +69,25 @@ export function initMotion() {
     );
   }
 
-  // 3. Scroll Reveal for sections/items
+  // 3. Scroll Reveal — animate the inner content container, NOT the <section> itself.
+  // Animating the <section> would hide ghost numerals (prepended children) and
+  // break scanner bars (position:absolute relative to the section).
   const sections = document.querySelectorAll('section:not(#hero)');
-  sections.forEach(el => {
-    gsap.set(el, { y: config.revealOffset, scale: 0.96, opacity: 0 });
+  sections.forEach(section => {
+    // Target first direct child that is not the ghost numeral
+    const inner = section.querySelector(':scope > *:not(.section-ghost-numeral)');
+    if (!inner) return;
+    gsap.set(inner, { y: config.revealOffset, scale: 0.96, opacity: 0 });
     ScrollTrigger.create({
-      trigger: el,
+      trigger: section,
       start: 'top 85%',
       once: true,
       onEnter: () => {
-        gsap.to(el, {
-          y: 0, 
+        gsap.to(inner, {
+          y: 0,
           scale: 1,
-          opacity: 1, 
-          duration: config.durations.base, 
+          opacity: 1,
+          duration: config.durations.base,
           ease: easeOutExpo
         });
       }
